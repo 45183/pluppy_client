@@ -1,7 +1,5 @@
-.Product_container {
+.product_Container {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .Product {
   width: 80%;
@@ -35,15 +33,17 @@
 }
 #Product_title {
   float: left;
-  font-size: 20px;
+  font-size: 18px;
+  width: 240px;
 }
 #Product_content {
   display: inline-block;
   margin-left: 10px;
+  color:rgb(72, 72, 72);
 }
 #Product_percent {
   float: left;
-  font-size: 18px;
+  font-size: 20px;
   color: red;
   font-weight: bold;
 }
@@ -64,7 +64,6 @@
   color: black;
   float: left;
   margin-top: 9px;
-  margin-left: 15px;
   font-weight: 500;
   font-size: 13px;
 }
@@ -74,5 +73,8 @@
 }
 .btn-cart {
   background-color: #2bbd7c;
+  border:none;
+  width: 60px;
+  height: 40px;
   border-radius: 10px;
 }

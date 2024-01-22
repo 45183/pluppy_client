@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { Card, CardGroup } from "react-bootstrap";
 import "../Product/ProductDetail.css";
 import axios from "axios";
-
-const ProductDetail = () => {
+const ProductDetail2 = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     // 컴포넌트가 처음 마운트될 때 axios를 사용하여 초기 상품 데이터를 불러옵니다.
     axios
       .get(
-        "https://raw.githubusercontent.com/ming023/project/main/Products.json"
+        "https://raw.githubusercontent.com/ming023/project/main/Products2.json"
       )
       .then((result) => {
         if (Array.isArray(result.data.products)) {
@@ -31,7 +30,7 @@ const ProductDetail = () => {
             <ProductCard key={index} product={product} index={index + 1} />
           ))}
         </CardGroup>
-      </div>
+    </div>
   );
 };
 
@@ -42,7 +41,7 @@ function ProductCard({ product, index }) {
         <Card.Img
           id="Product_img"
           variant="top"
-          src={`./images/dog/product${index}.jpeg`}
+          src={`./images/cat/product${index}.jpeg`}
           alt=""
         />
       </a>
@@ -64,4 +63,4 @@ function ProductCard({ product, index }) {
   );
 }
 
-export default ProductDetail;
+export default ProductDetail2;

@@ -1,5 +1,5 @@
 import "../styles/Main.css"
-import Header from "../components/common/Header";
+import Header from "../components/common/Header/Header";
 import SliderImage from "../components/Slider";
 function Main(){
    return (

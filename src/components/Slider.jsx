@@ -23,7 +23,7 @@ function SliderImage() {
     centerPadding: '0',
   };
     return (
-        <Slider {...settings} className="swiper">
+        <Slider {...settings} className="slide">
       {images.map((image, index) => (
         <div key={index} className="slider" >
           <img src={image} alt={`슬라이드 이미지 ${index + 1}`} />
