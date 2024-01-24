@@ -35,3 +35,15 @@
   .content_navbar a:hover{
     color:rgb(0, 4, 255);
   }
+  .option {
+    height: 20px;
+    float:right;
+  }
+  .option_btn {
+    width: 100px;
+    height: 20px;
+    background-color: #10E195;
+    border-radius: 5px;
+    border:none;
+    color:rgb(0, 0, 0);
+  }

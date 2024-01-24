@@ -5,8 +5,8 @@ import '../styles/Store.css'
 const Store = () => {
     return (
         <div className="store">
-        <Header/>
-        <SliderImage/>
+        <Header />
+        <SliderImage />
         <Product />
         </div>
     )

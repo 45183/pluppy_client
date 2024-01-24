@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardGroup } from "react-bootstrap";
 import "../Product/ProductDetail.css";
 import axios from "axios";
-
+import { Link } from 'react-router-dom';
 const ProductDetail = () => {
   const [products, setProducts] = useState([]);
 
@@ -22,9 +22,10 @@ const ProductDetail = () => {
       .catch((error) => {
         console.error("데이터를 불러오는 중 오류 발생", error);
       });
-  }, []); // 두 번째 매개변수로 빈 배열을 전달하여 한 번만 실행되도록 합니다.
+  }, []); 
 
   return (
+    <div className="product_section">
       <div className="product_Container" id="Product_group">
         <CardGroup className="Product">
           {products.map((product, index) => (
@@ -32,20 +33,21 @@ const ProductDetail = () => {
           ))}
         </CardGroup>
       </div>
+    </div>
   );
 };
 
 function ProductCard({ product, index }) {
   return (
     <Card className="col-md-4" id="Product_box">
-      <a href="">
+      <Link to={`/store/${product.id}`}>
         <Card.Img
           id="Product_img"
           variant="top"
           src={`./images/dog/product${index}.jpeg`}
           alt=""
         />
-      </a>
+      </Link>
       <Card.Body className="Product_body">
         <Card.Title id="Product_title">{product.title}</Card.Title>
         <Card.Text id="Product_content">{product.content}</Card.Text>
