@@ -116,7 +116,7 @@ form input {
   border: none;
   padding: 10px 15px;
   font-size: 16px;
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: 400;
   border-radius: 8px;
   background: none;
@@ -159,4 +159,7 @@ form .btn {
 
 .login_container.active .login-section header {
   opacity: 0.6;
+}
+.signUp-form input  {
+  color:black;
 }
