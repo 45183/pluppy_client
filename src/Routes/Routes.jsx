@@ -11,6 +11,7 @@ import Detail from '../components/ProductDetail/detail';
 import FAQ from '../pages/FAQ/FAQ';
 import Admin from '../pages/Admin/AdminPage';
 import SignUp from '../components/Signup/Signup';
+import Terms from '../components/Signup/Terms';
 const AppRoute = () => {
     return (
         <BrowserRouter>
@@ -25,6 +26,7 @@ const AppRoute = () => {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin" element={<Admin />}/>
           <Route path="/signUp" element={<SignUp />}/>
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<Error404 />} />
 
         </Routes>
