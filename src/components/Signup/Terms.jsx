@@ -8,11 +8,13 @@ const frameStyle = {
   borderRadius: "20px",
   margin: "20px auto",
   boxShadow: "5px 5px 10px #888888",
+  cursor:"pointer"
 };
 
 const Terms = () => {
   return (
     <div style={frameStyle}>
+      <a href="/signUp">
       <h2>제1조 (목적)</h2><br />
       <p>이 약관은 Pluffy 서비스의 이용조건 및 절차, 이용자와 회사의 권리·의무, 책임사항 등 <br />필요한 사항을 규정함을 목적으로 합니다.</p>
       <br />
@@ -55,6 +57,7 @@ const Terms = () => {
       <h2>제6조 (개인정보 보호)</h2><br />
       <p>회사는 이용자의 개인정보를 적절히 관리하고 보호하기 위해 최선의 노력을 다하며, <br />개인정보 보호에 관한 법령 및 회사의 개인정보 처리방침을
         준수합니다.</p>
+        </a>
     </div>
   );
 };

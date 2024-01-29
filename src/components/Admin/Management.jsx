@@ -5,7 +5,7 @@ const Management = () => {
       <div className="userList">
         <div className="list">
           <h3>회원 관리</h3>
-          <a href="">회원 리스트</a>
+          <a href="user">회원 리스트</a>
         </div>
       </div>
       <div className="orderList">

@@ -10,6 +10,7 @@ import ProductDetail2 from '../components/Product/ProductDetail2';
 import Detail from '../components/ProductDetail/detail';
 import FAQ from '../pages/FAQ/FAQ';
 import Admin from '../pages/Admin/AdminPage';
+import User from '../pages/Admin/UserPage'
 import SignUp from '../components/Signup/Signup';
 import Terms from '../components/Signup/Terms';
 const AppRoute = () => {
@@ -26,6 +27,7 @@ const AppRoute = () => {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin" element={<Admin />}/>
           <Route path="/signUp" element={<SignUp />}/>
+          <Route path="/user" element={<User />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<Error404 />} />
 
