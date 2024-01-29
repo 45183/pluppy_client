@@ -94,52 +94,7 @@ function SignUp() {
     
     <div className="SignUp">
       <div>
-        <div className='logIn'>
-            <h2>로그in</h2>
-            <form>
-              <div>
-                <input 
-                type="text" 
-                placeholder='google@gmail.com'
-                value={email}
-                onChange={handleEmail}
-                />
-                <div>
-                  {
-                    !emailValid && email.length > 0 && (
-                      <div>올바른 이메일을 입력해주세요</div>
-                    )
-                  }
-                </div>
-              </div>
-              <div>
-                <input 
-                type='password' 
-                placeholder='영문, 숫자, 특수문자 포함 8자 이상 입력'
-                value={pw}
-                onChange={handlePassword}
-                />
-                <div>
-                  {
-                    !pwValid && pw.length > 0 && (
-                    <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
-                    )  
-                  }
-                </div>
-              </div>
-            </form>
-        </div>
-        <div>
-         <button
-          onClick={onClickConfrimButton}
-          disabled={notAllow}
-         >
-           로그인
-         </button><br/>
-        </div>
-        <button>카카오 로그인</button><br/>
-        <button>구글 로그인</button><br/>
-        <p><span className='searchId'>아이디 찾기 </span><span className='searchPw'> 비밀번호 찾기</span></p>
+       
         <div className='signUp'>
           <h2>SIGN UP</h2>
           <form>
