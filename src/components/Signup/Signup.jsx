@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-
+import '../Signup/Signup.css';
 
 function SignUp() {
   
@@ -92,7 +92,7 @@ function SignUp() {
 
   return (
     
-    <div className="App">
+    <div className="SignUp">
       <div>
         <div className='logIn'>
             <h2>로그in</h2>
@@ -190,7 +190,6 @@ function SignUp() {
               <input type='text' placeholder='이름'/><br></br>
               <input type="text" placeholder='휴대폰번호'/><br />
               <div>
-                <input type="text" placeholder="인증번호입력"/> <button>인증하기</button>
               </div>
            </form>
            <p>Pluffy 이용약관</p>
@@ -202,9 +201,7 @@ function SignUp() {
               V</button>
            </p>
 
-              <p>전체 동의에는 필수 및 선택 정보에 대한 동의가 포함되어 있으며,<br></br>
-              개별적으로 동의를 선택 하실 수 있습니다.선택 항목에 대한 동의를 <br></br> 
-              거부하시는 경우에도 서비스 이용이 가능합니다.</p>
+              <p>전체 동의에는 필수 정보에 대한 동의가 포함되어 있습니다.</p>
             {  
                terms === true ?
             (            
@@ -215,11 +212,6 @@ function SignUp() {
               <input type='checkbox' />[필수] 개인정보 수집 및 이용 동의<br/>
               <input type='checkbox' />[필수] 개인정보 제 3자 제공 동의<br/>
             </div>
-            <div>
-              <input type='checkbox' />[선택] 이메일 수신동의<br/>
-              <input type='checkbox' />[선택] 마케팅 목적의 개인정보 수집 및 동의<br/>
-              <input type='checkbox' />[선택] sms,sns 수신 동의<br/>
-             </div>
             </div>
             )
             :null
