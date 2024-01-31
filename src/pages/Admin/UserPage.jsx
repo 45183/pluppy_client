@@ -1,5 +1,5 @@
-import AdminHeader from "../../components/common/Header/Admin_Header"
-import UserList from "../../components/Admin/User/UserList";
+import AdminHeader from "./Admin_Header"
+import UserList from "./UserList";
 
 const User = () => {
     return(

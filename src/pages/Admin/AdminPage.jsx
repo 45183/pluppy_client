@@ -1,5 +1,5 @@
-import Management from "../../components/Admin/Management/Management";
-import AdminHeader from "../../components/common/Header/Admin_Header";
+import Management from "./Management";
+import AdminHeader from "./Admin_Header";
 const Admin = ()=> {
     return(
         <div>

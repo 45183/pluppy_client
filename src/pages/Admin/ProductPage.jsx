@@ -1,5 +1,5 @@
-import AdminHeader from "../../components/common/Header/Admin_Header"
-import ProductList from "../../components/Admin/Product/ProductList";
+import AdminHeader from "./Admin_Header"
+import ProductList from "./ProductList";
 
 const Product = () => {
     return(

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../Signup/Signup.css';
 
 function SignUp() {
   const User = {

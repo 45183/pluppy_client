@@ -1,35 +1,25 @@
-import "./Order.css";
-import Order_Button from "../../common/Order_Button";
-function OrderTable() {
+import "./User.css";
+const UserList = () => {
   return (
-    <table className="order_table">
+    <div className="user">
+      <div className="userManagement">
+        <h3>회원관리</h3>
+        <div className="user_container">
+        <table className="user_table">
       <thead>
         <tr>
-          <th>주문번호</th>
           <th>고객명</th>
-          <th>주문일자</th>
-          <th>상품명</th>
-          <th>주문상태</th>
+          <th>이메일 주소</th>
+          <th>연락처</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>xxxxx</td>
           <td>플러피</td>
-          <td>2024.00.00</td>
-          <td>플러피 세트</td>
-          <td><Order_Button /></td>
+          <td>pluppy@naver.com</td>
+          <td>010-1234-5678</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -38,19 +28,8 @@ function OrderTable() {
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -59,19 +38,8 @@ function OrderTable() {
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -80,19 +48,8 @@ function OrderTable() {
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -101,6 +58,9 @@ function OrderTable() {
           <td></td>
           <td></td>
           <td></td>
+        </tr>
+        <tr>
+          <td></td>
           <td></td>
           <td></td>
         </tr>
@@ -108,6 +68,9 @@ function OrderTable() {
           <td></td>
           <td></td>
           <td></td>
+        </tr>
+        <tr>
+          <td></td>
           <td></td>
           <td></td>
         </tr>
@@ -115,19 +78,27 @@ function OrderTable() {
           <td></td>
           <td></td>
           <td></td>
+        </tr>
+        <tr>
+          <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td></td>
           <td></td>
+          <td></td>
+        </tr>
+        <tr>
           <td></td>
           <td></td>
           <td></td>
         </tr>
       </tbody>
     </table>
+        </div>
+      </div>
+    </div>
   );
-}
-
-export default OrderTable;
+};
+export default UserList;

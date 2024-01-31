@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 function Header(){
    const [isLogin, setIsLogin] = useState(false) 
- 
   useEffect(() => {
     if(sessionStorage.getItem('id') != null){ 
       setIsLogin(true)

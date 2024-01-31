@@ -1,7 +1,11 @@
 import "./Product.css";
-function ProductTable() {
+const ProductList = () => {
   return (
-    <table className="product_table">
+    <div className="product">
+      <div className="productManagement">
+        <h3>상품관리</h3>
+        <div className="product_container">
+        <table className="product_table">
       <thead>
         <tr>
           <th>상품번호</th>
@@ -143,7 +147,12 @@ function ProductTable() {
         </tr>
       </tbody>
     </table>
+        </div>
+        <a href="/product/new">
+          <button className="product_button">등록하기</button>
+        </a>
+      </div>
+    </div>
   );
-}
-
-export default ProductTable;
+};
+export default ProductList;

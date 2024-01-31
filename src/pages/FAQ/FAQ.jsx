@@ -1,4 +1,4 @@
-import Header from "../../components/common/Header/Header";
+import Header from "../../components/Header/Header";
 import Accordion from "../../components/Accordion/Accordion";
 import "../FAQ/FAQ.css";
 const FAQ = () => {
