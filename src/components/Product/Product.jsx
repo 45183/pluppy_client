@@ -7,7 +7,7 @@ import ProductDetail2 from './ProductDetail2';
 const Product = () => {
   const [tab, TabChange] = useState(0);
   return (
-    <div className="product">
+    <div className="product_content">
       {<div className="category">
         <ul>
           <li><a href='/store'>전체</a></li>
