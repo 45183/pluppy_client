@@ -1,12 +1,12 @@
 import AdminHeader from "../../components/common/Header/Admin_Header"
-import UserList from "../../components/Admin/User/UserList";
+import OrderList from "../../components/Admin/Order/OrderList";
 
-const User = () => {
+const Order = () => {
     return(
         <div>
             <AdminHeader/>
-            <UserList/>
+            <OrderList/>
         </div>
     )
 }
-export default User;
+export default Order;

@@ -1,12 +1,12 @@
 import AdminHeader from "../../components/common/Header/Admin_Header"
-import UserList from "../../components/Admin/User/UserList";
+import ProductList from "../../components/Admin/Product/ProductList";
 
-const User = () => {
+const Product = () => {
     return(
         <div>
             <AdminHeader/>
-            <UserList/>
+            <ProductList/>
         </div>
     )
 }
-export default User;
+export default Product;

@@ -10,7 +10,9 @@ import ProductDetail2 from '../components/Product/ProductDetail2';
 import Detail from '../components/ProductDetail/detail';
 import FAQ from '../pages/FAQ/FAQ';
 import Admin from '../pages/Admin/AdminPage';
-import User from '../pages/Admin/UserPage'
+import User from '../pages/Admin/UserPage';
+import Order from '../pages/Admin/OrderPage';
+import Product from '../pages/Admin/ProductPage';
 import SignUp from '../components/Signup/Signup';
 import Terms from '../components/Signup/Terms';
 const AppRoute = () => {
@@ -28,9 +30,10 @@ const AppRoute = () => {
           <Route path="/admin" element={<Admin />}/>
           <Route path="/signUp" element={<SignUp />}/>
           <Route path="/user" element={<User />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<Error404 />} />
-
         </Routes>
       </BrowserRouter>
     )
