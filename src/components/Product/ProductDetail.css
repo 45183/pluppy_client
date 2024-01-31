@@ -3,21 +3,28 @@
   justify-content: center;
   align-items: center;
 }
-.Product {
+.product_Detail {
   width: 80%;
-  flex-wrap: wrap; /* 줄 바꿈을 허용 */
+  height: 0 auto;
+  display: inline-block;
   justify-content: space-around;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  column-count: 4;
 }
-#Product_box {
+#product_box {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#product_li{
   border: 1px solid rgb(205, 205, 205);
   box-shadow: 2px 2px 2px 2px rgb(217, 217, 217);
   border-radius: 20px;
   margin: 20px;
   width: 270px;
   height: 400px;
-
+}
+#product_li > img {
+  border-radius: 20px;
+  width: 230px;
+  margin:15px;
 }

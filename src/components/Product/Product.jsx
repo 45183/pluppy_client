@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Nav} from 'react-bootstrap';
 import "../Product/Product.css";
 import ProductDetail from './ProductDetail';
+import ProductDetail1 from './ProductDetail1';
 import ProductDetail2 from './ProductDetail2';
 
 const Product = () => {
@@ -52,8 +53,8 @@ function TapContent({ tab }) {
     <div className={"start" + fade}>
       <div>
         {tab === 0 && <ProductDetail />}
-        {tab === 1 && <ProductDetail />}
-        {tab === 2 && <ProductDetail2 />}
+        {tab === 1 && <ProductDetail1 />}
+        {tab === 2 && <ProductDetail1 />}
         {tab === 3 && <ProductDetail2 />}
         {tab === 4 && <ProductDetail2 />}
       </div>

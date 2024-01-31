@@ -1,6 +1,17 @@
 import './Header.css';
+import Login from './Login';
+import Logout from './Logout';
+import React, { useEffect, useState } from 'react';
 
 function Header(){
+   const [isLogin, setIsLogin] = useState(false) 
+ 
+  useEffect(() => {
+    if(sessionStorage.getItem('id') != null){ 
+      setIsLogin(true)
+    }
+  })
+
    return <div className="header_container">
     <header>
         <nav>
@@ -11,7 +22,7 @@ function Header(){
             <li><a href="/community">커뮤니티</a></li>
             <li><a href="/store">스토어</a></li>
             <li><a href="/faq">FAQ</a></li>
-            <li><button><a href="/login">로그인</a></button></li>
+            {isLogin ? <Logout isLogin={isLogin}/>:<Login />}
             <li><button><a href="/cart">장바구니</a></button></li>
          </ul>
         </nav>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function ProductDetail2() {
+function ProductDetail1() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://caiman-talented-hopefully.ngrok-free.app/product/cat');
+        const response = await axios.get('https://caiman-talented-hopefully.ngrok-free.app/product/dog');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -37,4 +37,4 @@ function ProductDetail2() {
   );
 }
 
-export default ProductDetail2;
+export default ProductDetail1;
