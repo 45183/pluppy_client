@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const User = {
@@ -8,6 +10,8 @@ function SignUp() {
 
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
 
   const [pwc, setPwc] = useState('');
 
@@ -43,6 +47,13 @@ function SignUp() {
     setPwcValid(passwordMatch && passwordValid);
   };
 
+  const handleName = (e) => {
+    setName(e.target.value)
+  }
+  const handlePhone = (e) => {
+    setPhone(e.target.value)
+  }
+
 
   const onClickTermButton = (e) => {
     setTerms(!terms);
@@ -71,6 +82,16 @@ function SignUp() {
     setChecked([checked[0], e.target.checked]);
   };
 
+  
+  const navigate = useNavigate();
+
+  const URL = 'http://localhost:5000/user/signUp'
+
+  const onSubmit = async(e) => {
+    e.preventDefault()
+    await axios.post(URL, {email: email, name: name, password: pw, phone: phone})
+    navigate('/')
+  }
 
 
 
@@ -81,7 +102,7 @@ function SignUp() {
     <div className="SignUp">
       <div className="signUp">
         <h2>SIGN UP</h2>
-        <form>
+        <form onSubmit={onSubmit}>
           <div>
             <input
               type="text"
@@ -128,9 +149,9 @@ function SignUp() {
               )}
             </div>
           </div>
-          <input type="text" placeholder="이름" />
+          <input type="text" placeholder="이름" value={name} onChange={handleName}/>
           <br />
-          <input type="text" placeholder="휴대폰번호" />
+          <input type="text" placeholder="휴대폰번호" value={phone} onChange={handlePhone} />
           <br />
           <button type="submit" disabled={notAllow}>
             Sign Up

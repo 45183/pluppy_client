@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import './Login.css'; // 스타일 파일 import
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -45,17 +46,17 @@ const Login = () => {
 
   
 
-  const onClickConfrimButton =()=>{
-     if(email===User.email){
-        if(pw === User.pw){
-           alert('로그인에 성공하였습니다');
-        }else{
-           alert('패스워드가 틀렸습니다.')
-        }
-     }else{
-        alert('등록되지 않은 회원입니다.')
-     }
-  }
+//   const onClickConfrimButton =()=>{
+//      if(email===User.email){
+//         if(pw === User.pw){
+//            alert('로그인에 성공하였습니다');
+//         }else{
+//            alert('패스워드가 틀렸습니다.')
+//         }
+//      }else{
+//         alert('등록되지 않은 회원입니다.')
+//      }
+//   }
   
 
 
@@ -70,11 +71,26 @@ const Login = () => {
   },
   [emailValid,pwValid]);
 
+  
+  const navigate = useNavigate()
+
+
+  const URL = 'http://localhost:5000/auth/login'
+
+  const onSubmit = async(e) => {
+    e.preventDefault()
+    await axios.post(URL, {email: email, password: pw})
+      .then((res) => sessionStorage.setItem("email", email))
+    navigate('/')
+  }
+
+
+
   return (
 <div className='login'>
     <div className='logIn'>
         <h2>로그in</h2>
-        <form>
+        <form onSubmit={onSubmit}>
             <div>
                 <input
                     type="text"
@@ -99,12 +115,12 @@ const Login = () => {
                     ) }
                 </div>
             </div>
+            <div>
+               <button type="submit">
+                  로그인
+               </button><br/>
+            </div>
         </form>
-    </div>
-    <div>
-        <button onClick={onClickConfrimButton} disabled={notAllow}>
-            로그인
-        </button><br/>
     </div>
     <button>카카오 로그인</button><br/>
     <button>구글 로그인</button><br/>
