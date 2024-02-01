@@ -2,10 +2,13 @@ import './Header.css';
 // import Login from './Login';
 // import Logout from './Logout';
 import React, { useEffect, useState } from 'react';
+import CartMenu from "../Cart/CartMenu"
 
 function Header(){
    const [isLogin, setIsLogin] = useState(false);
    const [isAdmin, setIsAdmin] = useState(false);
+
+   const [isCartOpen, setCartOpen] = useState(false); // 장바구니 오픈
  
    useEffect(() => {
       if(sessionStorage.getItem('email') != null){ 
@@ -24,6 +27,10 @@ function Header(){
       document.location.href = '/';
    };
 
+   const toggleMenu = () => {
+      setCartOpen((prevIsOpen) => !prevIsOpen);
+    }; // 장바구니 코드
+
    return <div className="header_container">
     <header>
         <nav>
@@ -36,7 +43,7 @@ function Header(){
             <li><a href="/faq">FAQ</a></li>
             { isAdmin ? <li><a href="/admin">관리자</a></li> : <></> } 
             {isLogin ? <li><button  onClick={onClickLogout}><a href="/" >로그아웃</a></button></li> :<li><button><a href="/login">로그인</a></button></li>}
-            <li><button><a href="/cart">장바구니</a></button></li>
+            <li><CartMenu cartOpen={isCartOpen} toggleMenu={toggleMenu} /></li>
          </ul>
         </nav>
       </header>
