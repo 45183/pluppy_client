@@ -1,0 +1,16 @@
+.slide_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide{
+    width: 100%;
+    height: 300px;
+  }
+  .slide_img > img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+  }
