@@ -1,6 +1,6 @@
 import './App.css';import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './pages/Main/Main'
+import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Error404 from './pages/Error404/Error404';
 import Store from './pages/Store/Store';
@@ -14,6 +14,7 @@ import Terms from './pages/SignUp/Terms';
 import Dog from './pages/Store/Dog';
 import Cat from './pages/Store/Cat';
 import Modify from './pages/MyPage/User_Modify';
+import OrderList from './pages/Order/OrderList';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/modify" element={<Modify />} />
+          <Route path="/orderList" element={<OrderList />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>

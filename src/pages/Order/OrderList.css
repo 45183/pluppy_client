@@ -1,0 +1,78 @@
+.orderList {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.delivery{
+    width: 500px;
+    height: 400px;
+    border-top: 2px solid gray;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.delivery h2, h4,
+.product_info h2,
+.payment h2,
+.payment_price h2  {
+    margin:20px;
+}
+
+.delivery  p{
+    margin:30px;
+}
+
+.delivery input {
+    margin-left:30px;
+    width: 360px;
+    height: 25px;
+}
+
+.delivery select {
+    margin-left:105px;
+    width: 360px;
+    height: 25px;
+}
+
+.product_info {
+    width: 500px;
+    height: 200px;
+    border-top: 2px solid gray;
+    text-align: left;
+}
+.payment {
+    width: 500px;
+    height: 100px;
+    border-top: 1px solid gray;
+    text-align: left;
+}
+.payment button {
+    width: 80px;
+    height: 30px;
+    margin: 10px;
+}
+
+.payment_price {
+    border:2px solid black;
+    float:right;
+    width: 300px;
+    height: 600px;
+    margin-bottom: 120px;
+    margin-left: 20px;
+    text-align: left;
+}
+.payment_price h2 {
+    padding:10px;
+    border-bottom: 1px solid black ;
+}
+.payment_price p {
+    padding:10px;
+}
+.payment_price button {
+    width: 250px;
+    height: 60px;
+    margin-left:25px;
+    background-color: black;
+    color:white;
+}
