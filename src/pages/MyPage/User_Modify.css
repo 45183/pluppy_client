@@ -1,0 +1,57 @@
+.modify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modify_container {
+    width: 40%;
+    height:700px;
+    border: 1px solid #2BBD7C;
+    border-radius: 5%;
+}
+.modify_container h2 {
+    margin:30px;
+}
+
+.fileInputFrame  {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border:1px solid #2BBD7C;
+    border-radius: 50%;
+    margin:20px;
+    overflow: hidden;
+}
+.uploadedImage {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 50%; 
+}
+
+.modify_form {
+    margin:10px;
+}
+
+.modify form p{
+    padding:5px;
+    margin:20px;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    width: 300px;
+    display: inline-block;
+    font-weight: 500;
+}
+.modify_form input {
+    border:none;
+    width: 230px;
+}
+.modify_btn {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border:1px solid #2BBD7C;
+    background-color: #2BBD7C;
+}
+#fileInput {
+
+}

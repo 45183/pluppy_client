@@ -4,9 +4,6 @@ import Main from './pages/Main/Main'
 import Login from './pages/Login/Login';
 import Error404 from './pages/Error404/Error404';
 import Store from './pages/Store/Store';
-import ProductDetail1 from './components/Product/ProductDetail1';
-import ProductDetail2 from './components/Product/ProductDetail2';
-import Detail from './components/ProductDetail/detail';
 import FAQ from './pages/FAQ/FAQ';
 import Admin from './pages/Admin/AdminPage';
 import User from './pages/Admin/UserPage';
@@ -14,6 +11,10 @@ import Order from './pages/Admin/OrderPage';
 import Product from './pages/Admin/ProductPage';
 import SignUp from './pages/SignUp/Signup';
 import Terms from './pages/SignUp/Terms';
+import Dog from './pages/Store/Dog';
+import Cat from './pages/Store/Cat';
+import Modify from './pages/MyPage/User_Modify';
+
 function App() {
   return (
     <div className="App">
@@ -21,9 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/store" element={<Store />} />
-          <Route exact path="/store/:id" element={<Detail />} />
-          <Route path="/dog" element={<ProductDetail1 />} />
-          <Route path="/cat" element={<ProductDetail2 />} />
+          <Route path="/dog" element={<Dog />} />
+          <Route path="/cat" element={<Cat />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin" element={<Admin />}/>
@@ -32,6 +32,7 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/modify" element={<Modify />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>

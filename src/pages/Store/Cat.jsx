@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Nav} from 'react-bootstrap';
-import "../Product/Product.css";
-import ProductDetail from './ProductDetail';
-import ProductDetail1 from './ProductDetail1';
-import ProductDetail2 from './ProductDetail2';
-
-const Product = () => {
+import { Nav } from 'react-bootstrap';
+import "./Store.css";
+import ProductDetail from '../../components/Product/ProductDetail';
+import Header from '../../components/Header/Header';
+import { SliderImage } from '../Main/Main';
+const Cat = () => {
   const [tab, TabChange] = useState(0);
   return (
     <div className="product_content">
-      {<div className="category">
+        <Header />
+        <SliderImage />
+      <div className="category">
         <ul>
           <li><a href='/store'>전체</a></li>
           <li><a href='/dog'>강아지</a></li>
           <li><a href='/cat'>고양이</a></li>
         </ul>
-      </div>}
+      </div>
       <Nav variant="tabs" defaultActiveKey="link0" className="content_navbar">
         <Nav.Item>
           <Nav.Link onClick={() => { TabChange(0); }} eventKey="link0">장난감</Nav.Link>
@@ -53,13 +54,13 @@ function TapContent({ tab }) {
     <div className={"start" + fade}>
       <div>
         {tab === 0 && <ProductDetail />}
-        {tab === 1 && <ProductDetail1 />}
-        {tab === 2 && <ProductDetail1 />}
-        {tab === 3 && <ProductDetail2 />}
-        {tab === 4 && <ProductDetail2 />}
+        {tab === 1 && <ProductDetail />}
+        {tab === 2 && <ProductDetail />}
+        {tab === 3 && <ProductDetail />}
+        {tab === 4 && <ProductDetail />}
       </div>
     </div>
   );
 }
 
-export default Product;
+export default Cat;

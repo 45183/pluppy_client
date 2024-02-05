@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../Product/ProductDetail.css'
+import './ProductDetail.css'
 function ProductDetail() {
   const [data, setData] = useState(null);
 
