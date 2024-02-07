@@ -8,17 +8,11 @@
 .error404_container{
     text-align: center;
     width:100%;
-    height: 790px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-}
-.error404 h1 {
-    font-size: 100px;
-    font-family: 'CWDangamAsac-Bold';
-    color:#10E195;
-    margin-bottom:30px;
 }
 .error404 p {
     font-size:26px;

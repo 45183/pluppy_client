@@ -1,7 +1,10 @@
-import "./Product.css";
-const ProductList = () => {
-  return (
-    <div className="product">
+import AdminHeader from "../../Admin/Admin_Header"
+import './Product.css';
+const Product = () => {
+    return(
+        <div>
+            <AdminHeader/>
+            <div className="product">
       <div className="productManagement">
         <h3>상품관리</h3>
         <div className="product_container">
@@ -11,9 +14,7 @@ const ProductList = () => {
           <th>상품번호</th>
           <th>상품명</th>
           <th>판매가</th>
-          <th>노출</th>
           <th>재고</th>
-          <th>등록일</th>
         </tr>
       </thead>
       <tbody>
@@ -21,21 +22,9 @@ const ProductList = () => {
           <td>01</td>
           <td>플러피 세트</td>
           <td>00000원</td>
-          <td>on</td>
           <td>xxx</td>
-          <td>2024.00.00</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -46,20 +35,8 @@ const ProductList = () => {
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -70,20 +47,8 @@ const ProductList = () => {
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -94,20 +59,8 @@ const ProductList = () => {
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -118,6 +71,10 @@ const ProductList = () => {
           <td></td>
           <td></td>
           <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
         </tr>
@@ -126,6 +83,10 @@ const ProductList = () => {
           <td></td>
           <td></td>
           <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
         </tr>
@@ -134,12 +95,20 @@ const ProductList = () => {
           <td></td>
           <td></td>
           <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td></td>
           <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
           <td></td>
           <td></td>
           <td></td>
@@ -153,6 +122,7 @@ const ProductList = () => {
         </a>
       </div>
     </div>
-  );
-};
-export default ProductList;
+        </div>
+    )
+}
+export default Product;

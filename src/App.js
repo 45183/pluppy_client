@@ -6,15 +6,17 @@ import Error404 from './pages/Error404/Error404';
 import Store from './pages/Store/Store';
 import FAQ from './pages/FAQ/FAQ';
 import Admin from './pages/Admin/AdminPage';
-import User from './pages/Admin/UserPage';
-import Order from './pages/Admin/OrderPage';
-import Product from './pages/Admin/ProductPage';
+import User from './pages/Admin/User/UserPage';
+import Order from './pages/Admin/Order/OrderPage';
+import Product from './pages/Admin/Product/ProductPage';
 import SignUp from './pages/SignUp/Signup';
 import Terms from './pages/SignUp/Terms';
 import Dog from './pages/Store/Dog';
 import Cat from './pages/Store/Cat';
 import Modify from './pages/MyPage/User_Modify';
 import OrderList from './pages/Order/OrderList';
+import Payment_Loading from './pages/Order/Payment_Loading';
+import Payment_Complete from './pages/Order/Payment_Complete';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/modify" element={<Modify />} />
+          <Route path="/payment_loading" element={<Payment_Loading/>} />
+          <Route path="/payment_complete" element={<Payment_Complete/>} />
           <Route path="/orderList" element={<OrderList />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

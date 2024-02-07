@@ -52,7 +52,7 @@ const OrderList = () => {
               <p><input type="checkbox" /> (필수) 개인정보 제3자 제공 동의 보기</p>
               <p><input type="checkbox" /> (필수) 결제대행 서비스 이용약관 (주)KG이니시스</p>
               <p>결제 및 계좌 안내 시 상호명은 (주)플러피로 표기되니 참고 부탁드립니다.</p>
-              <button>CHECK OUT</button>
+              <a href="/payment_loading"><button>결제하기</button></a>
           </div>
         </div>
       </div>

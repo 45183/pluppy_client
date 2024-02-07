@@ -81,7 +81,7 @@ const Modify = () => {
       <Header />
       <div className="modify">
         <div className="modify_container">
-          <h2>회원정보 수정</h2>
+          <h2>회원정보</h2>
           <ImageUploadComponent />
           <form className="modify_form">
             <div>
