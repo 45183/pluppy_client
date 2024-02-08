@@ -56,7 +56,7 @@ function CartMenu({ cartOpen, toggleMenu }) {
 
       {cartOpen && <div className={`overlay ${cartOpen ? 'active' : ""}`}></div>}
 
-      <button onClick={toggleMenu}>장바구니</button>
+      <button id='green' onClick={toggleMenu}>장바구니</button>
     </>
   );
 }

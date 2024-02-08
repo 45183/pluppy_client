@@ -40,7 +40,7 @@ function Header(){
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/mypage">마이페이지</a></li>
             { isAdmin ? <li><a href="/admin">관리자</a></li> : <></> } 
-            {isLogin ? <li><button  onClick={onClickLogout}><a href="/" >로그아웃</a></button></li> :<li><button><a href="/login">로그인</a></button></li>}
+            {isLogin ? <li id='green'><button  onClick={onClickLogout}><a href="/" >로그아웃</a></button></li> :<li><button id='green'><a href="/login">로그인</a></button></li>}
             <li><CartMenu cartOpen={isCartOpen} toggleMenu={toggleMenu} /></li>
          </ul>
         </nav>

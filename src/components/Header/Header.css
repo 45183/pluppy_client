@@ -30,3 +30,15 @@ nav > ul{
    display: flex;
    justify-content: space-between;
 }
+#green {
+   border:none;
+   border-radius: 5px;
+   color:white;
+   width: 80px;
+   height: 20px;
+   background: linear-gradient(rgb(37, 196, 230), rgb(16, 225, 149));
+}
+#green a {
+   color:white;
+   font-weight: bold;
+}
