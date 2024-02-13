@@ -8,15 +8,15 @@ import FAQ from './pages/FAQ/FAQ';
 import Admin from './pages/Admin/AdminPage';
 import User from './pages/Admin/User/UserPage';
 import Order from './pages/Admin/Order/OrderPage';
-import Product from './pages/Admin/Product/ProductPage';
+import Product from './pages/Admin/Product/ProductList';
 import SignUp from './pages/SignUp/Signup';
 import Terms from './pages/SignUp/Terms';
-import Dog from './pages/Store/Dog';
-import Cat from './pages/Store/Cat';
 import Modify from './pages/MyPage/User_Modify';
 import OrderList from './pages/Order/OrderList';
 import Payment_Loading from './pages/Order/Payment_Loading';
 import Payment_Complete from './pages/Order/Payment_Complete';
+import Detail from './components/ProductDetail/detail';
+import ProductRegister from './pages/Admin/Product/ProductRegister';
 function App() {
   return (
     <div className="App">
@@ -24,19 +24,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/store" element={<Store />} />
-          <Route path="/dog" element={<Dog />} />
-          <Route path="/cat" element={<Cat />} />
+          <Route path="/store/:productId" element={<Detail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin" element={<Admin />}/>
           <Route path="/signUp" element={<SignUp />}/>
           <Route path="/user" element={<User />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/product/new" element={<ProductRegister />} />
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/modify" element={<Modify />} />
+          <Route path="/mypage" element={<Modify />} />
           <Route path="/payment_loading" element={<Payment_Loading/>} />
           <Route path="/payment_complete" element={<Payment_Complete/>} />
+          <Route path="/modify" element={<Modify />} />
           <Route path="/orderList" element={<OrderList />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

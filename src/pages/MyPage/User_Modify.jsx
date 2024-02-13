@@ -1,13 +1,34 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import "./User_Modify.css";
 import DaumPostcode from "react-daum-postcode";
 import Modal from "react-modal";
+import axiosInstance from "../../utils/axios";
+import Cookies from "js-cookie";
+
+const userId = Cookies.get('userId');
+
 
 const Modify = () => {
+
+  const [user, setUser] = useState([]);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const getUser = async () => {
+    try {
+      const res = await axiosInstance.get(`/user/${userId}`);
+      setUser(res.data.data);
+      console.log(res.data.data);
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+    };
+  };
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -31,23 +52,23 @@ const Modify = () => {
           <div>
             <p id="user_info">
               닉네임{" "}
-              <input type="text" value={name} onChange={handleNameChange} />
+              {user.name}
             </p>
           </div>
           <div>
             <p id="user_info">
               이메일{" "}
-              <input type="text" value={email} onChange={handleEmailChange} />
+              {user.email}
             </p>
           </div>
           <div>
             <p id="user_info">
               전화번호{" "}
-              <input type="text" value={phone} onChange={handlePhoneChange} />
+              {user.phone}
             </p>
           </div>
           <div className="address_box">
-          <Address_info />
+          <Address_info user={user}/>
           </div>
         </div>
       </div>
@@ -55,7 +76,7 @@ const Modify = () => {
   );
 };
 
-export function Address_info(props) {
+export function Address_info(user) {
   const [zipCode, setZipcode] = useState("");
   const [roadAddress, setRoadAddress] = useState("");
   const [detailAddress, setDetailAddress] = useState("");

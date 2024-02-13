@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../utils/axios';
 
 function SignUp() {
 
@@ -127,11 +127,9 @@ function SignUp() {
   
   const navigate = useNavigate();
 
-  const URL = 'http://localhost:5000/user/signUp'
-
   const onSubmit = async(e) => {
     e.preventDefault()
-    await axios.post(URL, {email: email, name: name, password: pw, phone: phone})
+    await axiosInstance.post('/user/signUp', {email: email, name: name, password: pw, phone: phone})
     navigate('/')
   }
 
@@ -223,7 +221,6 @@ return (
               )
             }
             </div>
-        </form>
           <div>
               <p>
                   <a href='/terms'>Pluffy 이용약관</a>     <button onClick={onClickTermButton}>V</button>
@@ -252,14 +249,13 @@ return (
               </p>
               {terms && children}
           </div>
-        <div>
+      <button><a href='/login'>logIn Page</a></button>
+      <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
     
    
-     </div>
-      </div>
-      <button><a href='/login'>logIn Page</a></button>
-      <button type="submit" disabled={notAllow}>Sign Up</button>
-    </div>
   );
 }
 

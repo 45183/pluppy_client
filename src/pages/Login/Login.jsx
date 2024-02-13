@@ -1,14 +1,11 @@
 import React,{useState, useEffect} from 'react';
 import './Login.css'; // 스타일 파일 import
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../utils/axios';
+import Cookies from 'js-cookie';
+
 
 const Login = () => {
-
-  const User = {
-    email : 'test@example.com',
-    pw:'test2323@@@'
-  }
 
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState("");
@@ -42,23 +39,6 @@ const Login = () => {
         setPwValid(false);
      }
   }
-  
-
-  
-
-//   const onClickConfrimButton =()=>{
-//      if(email===User.email){
-//         if(pw === User.pw){
-//            alert('로그인에 성공하였습니다');
-//         }else{
-//            alert('패스워드가 틀렸습니다.')
-//         }
-//      }else{
-//         alert('등록되지 않은 회원입니다.')
-//      }
-//   }
-  
-
 
 
   useEffect(()=>{
@@ -75,15 +55,20 @@ const Login = () => {
   const navigate = useNavigate()
 
 
-  const URL = 'http://localhost:5000/auth/login'
-
   const onSubmit = async(e) => {
-    e.preventDefault()
-    await axios.post(URL, {email: email, password: pw})
-      .then((res) => sessionStorage.setItem("email", email))
-    navigate('/')
-  }
+   e.preventDefault();
+   try{
 
+     const res = await axiosInstance.post(`/auth/login`, {email:email, password: pw})
+      
+     //  로그인 성공 시 사용자 정보를 쿠키에 저장
+     Cookies.set('userId', res.data.data.userInfo.userId);
+      console.log(res.data.data.userInfo.userId)
+      navigate('/')
+     } catch(error){
+        console.error(error)
+     }
+ }
 
 
   return (
