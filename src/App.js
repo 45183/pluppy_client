@@ -13,10 +13,12 @@ import SignUp from './pages/SignUp/Signup';
 import Terms from './pages/SignUp/Terms';
 import Modify from './pages/MyPage/User_Modify';
 import OrderList from './pages/Order/OrderList';
+import OrderDetail from './pages/Admin/Order/OrderDetail';
 import Payment_Loading from './pages/Order/Payment_Loading';
 import Payment_Complete from './pages/Order/Payment_Complete';
 import Detail from './components/ProductDetail/detail';
 import ProductRegister from './pages/Admin/Product/ProductRegister';
+import MyPage from './pages/MyPage/MyPage';
 function App() {
   return (
     <div className="App">
@@ -34,11 +36,12 @@ function App() {
           <Route path="/product/new" element={<ProductRegister />} />
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/mypage" element={<Modify />} />
+          <Route path="/myPage" element={<MyPage />} />
           <Route path="/payment_loading" element={<Payment_Loading/>} />
           <Route path="/payment_complete" element={<Payment_Complete/>} />
           <Route path="/modify" element={<Modify />} />
           <Route path="/orderList" element={<OrderList />} />
+          <Route path="/orderDetail" element={<OrderDetail />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>

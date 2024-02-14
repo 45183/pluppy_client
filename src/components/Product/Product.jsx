@@ -62,6 +62,7 @@ function Product() {
     } catch (error) {
       console.error(error);
     }
+    setSelectedCategory(null);
   };
 
   const handleMainCategoryClick = (category) => {
@@ -94,7 +95,7 @@ function Product() {
     <div className="product_content">
       <div className="category">
         <div className='main_category'>
-          <button onClick={() => handleAllProductClick(null)}>전체</button>
+        <button onClick={handleAllProductClick}>전체</button>
           <button onClick={() => handleMainCategoryClick(categories[0])}>강아지</button>
           <button onClick={() => handleMainCategoryClick(categories[1])}>고양이</button>
         </div>

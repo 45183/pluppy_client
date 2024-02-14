@@ -56,3 +56,42 @@ td,th{
     background-color: #ACACAC;
     border-radius: 5px;
 }
+.orderDetail_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.orderDetail_container  h3{
+    margin:30px;
+ } 
+
+.orderDetail {
+    width: 1000px;
+    height: 300px;
+}
+
+#order_gray {
+    background-color: #d4d4d4;
+}
+#blue_button {
+    float: right;
+    margin:30px;
+    width: 130px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #8EC2FF;
+    border:none;
+    border-radius: 5px;
+}
+#pink_button {
+    float: right;
+    margin:30px;
+    width: 130px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #efb3b3;
+    border:none;
+    border-radius: 5px;
+}

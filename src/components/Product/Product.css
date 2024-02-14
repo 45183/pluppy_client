@@ -1,11 +1,10 @@
 /* category */
 .category{
-  margin-top: 30px;
-  margin-bottom: 30px;
-  height: 100px;
-  /* display: flex; */
+  margin-top: 100px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .category button{
   text-decoration: none;
@@ -20,9 +19,9 @@
 }
 .sub_category{
   display: flex;
-  margin-top: -20px;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 .sub_category button{
   text-decoration: none;
@@ -32,6 +31,7 @@
   border:1px solid gray;
   border-radius: 10px;
 }
+
 .category li{
   list-style-type:none ;
   position:left;

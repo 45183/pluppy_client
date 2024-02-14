@@ -17,7 +17,7 @@ function Header(){
         <nav>
          <ul>
             <li className="navLogo"><a href="/">
-               <img src="/logo.png"/></a></li>
+            <img src="/logo.png"/></a></li>
             <li><a href="/about_us">About US</a></li>
             <li><a href="/store">스토어</a></li>
             <li><a href="/faq">FAQ</a></li>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Header from "../../components/Header/Header";
-import "./User_Modify.css";
+import "./MyPage.css";
 import DaumPostcode from "react-daum-postcode";
 import Modal from "react-modal";
 import axiosInstance from "../../utils/axios";

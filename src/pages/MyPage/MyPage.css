@@ -1,0 +1,151 @@
+.myPage_delivery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myPage {
+  width: 900px;
+}
+
+#myPage h2{
+  float:left;
+  margin:30px;
+}
+
+.delivery_state{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #efefef;
+  height: 120px;
+  font-weight: 600;
+}
+
+.delivery_state > li {
+  width: 600px;
+}
+
+.delivery_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 820px;
+}
+#delivery_table {
+  border-bottom:1px solid #2bbd7c;
+  border-top:1px solid #2bbd7c;
+}
+
+#delivery_table td,
+#delivery_table th {
+  border: none;
+}
+
+.delivery_content {
+  width: 730px;
+  margin-right:50px;
+}
+.myPage_container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  float: left;
+}
+
+.myPage_container h3 {
+  color: #2bbd7c;
+  margin: 20px;
+}
+.myPage_container li {
+  margin: 20px;
+}
+.myPage_container a {
+  color: #565656;
+  font-weight: bold;
+}
+
+.modify {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modify_container {
+  width: 40%;
+  height: 700px;
+  border: 1px solid #2bbd7c;
+  border-radius: 5%;
+  margin-bottom: 30px;
+}
+.modify_container h2 {
+  margin: 20px;
+}
+
+.fileInputFrame {
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  border: 1px solid #2bbd7c;
+  border-radius: 50%;
+  margin: 20px;
+  overflow: hidden;
+}
+.uploadedImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.modify_container p {
+  padding: 5px;
+  margin: 15px;
+  width: 300px;
+  display: inline-block;
+  font-weight: 500;
+}
+.modify_container input {
+  border: none;
+  width: 200px;
+  padding: 3px;
+  margin-left: 20px;
+}
+.modify_container #address_search {
+  border: none;
+  width: 60px;
+  padding: 5px;
+}
+.modify_container #address_info {
+  width: 450px;
+}
+.modify_container #address_info input {
+  margin: 10px;
+}
+.modify_btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #2bbd7c;
+  background-color: #2bbd7c;
+}
+.address_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#user_info {
+  margin-right: 80px;
+}
+#address_info input {
+  margin-left: 75px;
+}
+#address_num {
+  width: 300px;
+}
+#address_name {
+  width: 360px;
+}
+#address_search {
+  margin: 3px;
+}
