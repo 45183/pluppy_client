@@ -16,8 +16,8 @@ import OrderList from './pages/Order/OrderList';
 import OrderDetail from './pages/Admin/Order/OrderDetail';
 import Payment_Loading from './pages/Order/Payment_Loading';
 import Payment_Complete from './pages/Order/Payment_Complete';
-import Detail from './components/ProductDetail/detail';
-import ProductRegister from './pages/Admin/Product/ProductRegister';
+import Detail from './components/ProductDetail/Detail';
+import ProductRegistration from './pages/Admin/Product/ProductRegistration';
 import MyPage from './pages/MyPage/MyPage';
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route path="/signUp" element={<SignUp />}/>
           <Route path="/user" element={<User />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/product/new" element={<ProductRegister />} />
+          <Route path="/product/new" element={<ProductRegistration />} />
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/myPage" element={<MyPage />} />

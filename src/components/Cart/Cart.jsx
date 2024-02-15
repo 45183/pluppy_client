@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "./Cart.css"
+import clearCart from "./images/clearCart.png";
 
 const Cart = ({ closeCart }) => {
     const shippingCostThreshold = 50000;
@@ -61,7 +63,7 @@ const Cart = ({ closeCart }) => {
 
     return (
         <div>
-            <button onClick={handleCloseCart}>닫기</button>
+            <button className="closeBtn" onClick={handleCloseCart}>X</button>
             {cartItems.length > 0 && (
                 <>
                     <label>
@@ -71,8 +73,13 @@ const Cart = ({ closeCart }) => {
                             checked={cartItems.every(item => item.selected)}
                             onChange={(e) => handleSelectAll(e.target.checked)}
                         />
-                        전체 선택
+                        &nbsp;&nbsp;전체 선택
+
                     </label>
+                    <button onClick={handleRemoveSelected}
+                        className="allDelete"><span className="x">X</span>   선택 삭제</button>
+
+                    <hr />
 
                     <ul>
                         {cartItems.map(item => (
@@ -83,27 +90,41 @@ const Cart = ({ closeCart }) => {
                                     onChange={() => handleSelectItem(item.id)}
                                 />
                                 {item.id} - 가격 : {item.price} 원
-                                <input
-                                    type="number"
-                                    value={item.quantity}
-                                    onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value, 10))}
-                                />
+                                <div className="quantity-control">
+                                    <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
+                                    <span className="quantity-display">{item.quantity}</span> {/* 수량 표시 */}
+                                    <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
+                                </div>
                             </li>
                         ))}
                     </ul>
-
-                    <p>선택 상품 가격 : {getSelectedItemsTotal()}원</p>
-                    <p>배송비 : {getSelectedItemsTotal() >= shippingCostThreshold ? 0 : shippingCost}원</p>
-                    <p>총 가격 : {getTotalPrice()}원</p>
-
-                    <button onClick={handleRemoveSelected}>선택 삭제</button>
-                    <button onClick={handleCheckout}>결제하기</button>
+                    <hr />
+                    <div className="price">
+                        <div className="selectShip">
+                            <div className="selectPrice">
+                                <p>선택 상품</p>
+                                <p className="pricecss">{getSelectedItemsTotal()} 원</p>
+                            </div>
+                            <div className="plus">+</div>
+                            <div className="shipPrice">
+                                <p>배송비</p>
+                                <p className="pricecss">{getSelectedItemsTotal() >= shippingCostThreshold ? 0 : shippingCost} 원</p>
+                            </div>
+                        </div>
+                        <div className="allPrice">
+                            <p>주문 금액</p>
+                            <p className="finalPrice">{getTotalPrice()} 원</p>
+                        </div>
+                    </div>
+                    <hr />
+                    <button onClick={handleCheckout}
+                        className="pay">결제하기</button>
 
                 </>
             )}
 
 
-            {cartItems.length === 0 && <p>장바구니가 비어 있습니다.</p>}
+            {cartItems.length === 0 && <p className="clearCart"><img src={clearCart}/></p>}
 
         </div>
     )

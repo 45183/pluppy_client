@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import "./Cart.css"
+import clearCart from "./images/clearJjim.png";
 
 const Jjim = ({ closeJjim }) => {
     const [jjimItems, setJjimItems] = useState([
@@ -32,7 +34,7 @@ const Jjim = ({ closeJjim }) => {
 
     return (
         <div>
-            <button onClick={handleCloseJjim}>닫기</button>
+            <button className="closeBtn" onClick={handleCloseJjim}>X</button>
             {jjimItems.length > 0 && (
                 <>
                     <label>
@@ -41,9 +43,11 @@ const Jjim = ({ closeJjim }) => {
                             checked={jjimItems.every(item => item.selected)}
                             onChange={(e) => handleSelectAll(e.target.checked)}
                         />
-                        전체 선택
+                        &nbsp;&nbsp;전체 선택
                     </label>
-
+                    <button onClick={handleRemoveSelected}
+                        className="allDelete"><span className="x">X</span>   선택 삭제</button>
+                    <hr />
                     <ul>
                         {jjimItems.map(item => (
                             <li key={item.id}>
@@ -57,10 +61,10 @@ const Jjim = ({ closeJjim }) => {
                         ))}
                     </ul>
 
-                    <button onClick={handleRemoveSelected}>선택 삭제</button>
+                    <hr />
                 </>
             )}
-            {jjimItems.length === 0 && <p>찜한 상품이 없습니다.</p>}
+            {jjimItems.length === 0 && <p className="clearCart"><img src={clearCart}/></p>}
         </div>
 
 

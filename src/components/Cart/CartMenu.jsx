@@ -43,10 +43,10 @@ function CartMenu({ cartOpen, toggleMenu }) {
       <div ref={cartMenuRef} className={`cartMenu ${cartOpen ? "active" : ""}`}>
         <div className="tabButtons">
           <button onClick={showCart} className={activeTab === "cart" ? "activeTab" : ""}>
-            <h2>장바구니</h2>
+            <span>장바구니</span>
           </button>
           <button onClick={showJjim} className={activeTab === "jjim" ? "activeTab" : ""}>
-            <h2>찜</h2>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;찜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
           </button>
         </div>
 
