@@ -134,8 +134,18 @@
   justify-content: center;
 }
 
+.postCode_btn{
+  float: right;
+  width: 60px;
+  height: 30px;
+  background-color: #2bbd7c;
+  color: white;
+  font-weight: bold;
+  border:none;
+}
+
 #user_info {
-  margin-right: 80px;
+  margin-right: 130px;
 }
 #address_info input {
   margin-left: 75px;

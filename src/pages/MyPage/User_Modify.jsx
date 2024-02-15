@@ -81,6 +81,7 @@ export function Address_info(user) {
   const [roadAddress, setRoadAddress] = useState("");
   const [detailAddress, setDetailAddress] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const completeHandler = (data) => {
     setZipcode(data.zonecode);
@@ -119,6 +120,11 @@ export function Address_info(user) {
       console.log(zipCode, roadAddress, detailAddress);
     }
   };
+
+  const onClose = () => {
+    setIsOpen(false); // 모달창을 닫는 함수
+  };
+
   return (
     <div>
       <p id="address_info">
@@ -131,6 +137,7 @@ export function Address_info(user) {
         <input id='address_name' value={roadAddress} readOnly placeholder="도로명 주소" />
         <br />
         <Modal isOpen={isOpen} ariaHideApp={false} style={customStyles}>
+        <button type='button' onClick={onClose} className='postCode_btn'>닫기</button>
           <DaumPostcode onComplete={completeHandler} height="100%" />
         </Modal>
         <input

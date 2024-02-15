@@ -36,7 +36,7 @@ const MyPage = () => {
               <a href="/modify">회원정보</a>
             </li>
             <li>
-              <a href="">배송지 목록</a>
+              <a href="/delivery_List">배송지 목록</a>
             </li>
           </ul>
         </nav>

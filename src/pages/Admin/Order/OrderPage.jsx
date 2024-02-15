@@ -21,7 +21,7 @@ const Order = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>xxxxx</td>
+                  <td><a href="/orderDetail">xxxxx</a></td>
                   <td>플러피</td>
                   <td>2024.00.00</td>
                   <td>플러피 세트</td>
