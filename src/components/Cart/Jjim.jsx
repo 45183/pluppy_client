@@ -37,7 +37,7 @@ const Jjim = ({ closeJjim }) => {
             <button className="closeBtn" onClick={handleCloseJjim}>X</button>
             {jjimItems.length > 0 && (
                 <>
-                    <label>
+                    <label className="label">
                         <input
                             type="checkbox"
                             checked={jjimItems.every(item => item.selected)}

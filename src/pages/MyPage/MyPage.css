@@ -24,6 +24,7 @@
 
 .delivery_state > li {
   width: 600px;
+  margin-left: 50px;
 }
 
 .delivery_info {
@@ -55,10 +56,10 @@
 
 .myPage_container h3 {
   color: #2bbd7c;
-  margin: 20px;
+  margin:20px;
 }
-.myPage_container li {
-  margin: 20px;
+.myPage_container a{
+  margin: 30px;
 }
 .myPage_container a {
   color: #565656;

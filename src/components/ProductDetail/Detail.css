@@ -8,26 +8,25 @@
     width: 1000px;
     margin-top: 30px;
 }
-
+.productDetail_img {
+    width: 300px;
+}
 .productImage {
     margin-left: 30px;
     float: left;
-    width: 45%;
-    height: 350px;
-    background-color: #8f8f8f;
+    height: auto;
+    width: 400px;
+    border:none;
     display: flex;
     position: relative;
     justify-content: space-between;
-    overflow: hidden;
 }
 .productImage td{
-    
     width: 100%;
     height: 100%;
 }
 
 .imageSlider {
-    
     width: 100%;
     height: 100%;
 }
@@ -89,10 +88,6 @@
     height: 80px;
     cursor: pointer;
 }
-
-.jjimBtn:active {}
-
-
 
 .starReview {
     display: flex;

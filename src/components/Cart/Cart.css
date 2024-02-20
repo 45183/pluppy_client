@@ -9,7 +9,7 @@
     height: 23px;
 }
 
-label {
+.label {
     margin-top: 70px;
     margin-left: 35px;
     display: flex;
@@ -115,12 +115,21 @@ hr {
     font-size: 13px;
 }
 
+ul{
+    display: inline-block;
+
+}
+
+ul li{
+    display: inline-flex;
+}
+
 ul li .quantity-control {
     display: flex;
     align-items: center;
     float: right;
     margin-right: 30px;
-
+    width: 80px;
   }
   
   ul li .quantity-control input[type="number"] {

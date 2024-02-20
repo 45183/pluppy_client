@@ -9,16 +9,31 @@ function Main() {
       <Header />
       <div className="slide_container"><SliderImage /></div>
       <section>
-        <div className="sectionOne">
-          <div className="communityImg"></div>
-          <div className="communityBanner"></div>
+        <div className="section sectionOne">
+          <div className="communityImg">섹션1 communityImg</div>
+          <div className="communityBanner">섹션1 communityBanner</div>
         </div>
-        <div className="sectionTwo">
-          <div className="storeImg"></div>
-          <div className="storeBanner"></div>
+        <div className="setion sectionTwo">
+          <div className="storeBanner">섹션2 storeBanner</div>
+          <div className="storeImg">섹션2 storeImg</div>
         </div>
-        <div className="sectionThree"></div>
+        <div className="section sectionThree">
+          <div className="sectionThreeLeft">
+            <div className="leftTopText">섹션3 왼쪽위에텍스트</div>
+            <div className="leftLogoImg">섹션3 왼쪽아래 로고</div>
+          </div>
+          <div className="sectionThreeRight">
+            <div className="RightTopImg">섹션3 오른쪽위에 이미지</div>
+            <div className="RightBottomImg">
+              <div className="LeftAnimal">섹션3 오른쪽디브 좌측 이미지</div>
+              <div className="RightAnimal">섹션3 오른쪽디브 우측 이미지</div>
+            </div>
+          </div>
+        </div>
       </section>
+      <footer>
+        <div className="footerDiv"></div>
+      </footer>
     </div>
   )
 }

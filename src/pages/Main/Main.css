@@ -14,26 +14,88 @@
    width: 100%;
    height: 350px;
  }
- section{
-    margin: 0 auto;
-    width: 80%;
-    background-color: aliceblue;
-    height: 150vh;
- }
- section div{
-    margin: 0 auto;
-    width: 80%;
-    height: 30vh;
-    background-color: aqua; 
- }
-.sectionOne{
-
+section{
+   margin: 50px auto 0px;
 }
-.communityImg{
-   
+section .sectionOne{
+   display: flex;
+   margin: 0 auto;
+   width: 50vw;
+   height: 30vh;
 }
-.communityBanner{
-   display: ;
-   width: 60%;
-   background-color: #10E195;
+section .sectionOne .communityImg{
+   width: 50vw;
+   height: 30vh;
+   background-color: aqua;
+}
+section .sectionOne .communityBanner{
+   width: 50vw;
+   height: 30vh;
+   background-color: azure;
+}
+section .sectionOne .communityBanner:hover{
+   width: 70vw;
+   transition: all 0.3s;
+}
+section .sectionTwo{
+   display: flex;
+   margin: 0 auto;
+   width: 50vw;
+   height: 30vh;
+}
+section .sectionTwo .storeBanner{
+   width: 50vw;
+   height: 30vh;
+   background-color: lightcoral;
+}
+section .sectionTwo .storeBanner:hover{
+   width: 70vw;
+   transition: all 0.3s;
+}
+section .sectionTwo .storeImg{
+   width: 50vw;
+   height: 30vh;
+   background-color: lightgreen;
+}
+footer{
+   margin: 0 auto;
+}
+footer .footerDiv{
+   width: 100%;
+   height: 20vh;
+   background-color: rgb(49, 49, 49);
+}
+section .sectionThree{
+   display: flex;
+   margin: 0 auto;
+   width: 50vw;
+   height: 30vh;
+}
+.sectionThree .sectionThreeLeft .leftTopText{
+   width: 25vw;
+   height: 15vh;
+   background-color: blueviolet;
+}
+.sectionThree .sectionThreeLeft .leftLogoImg{
+   width: 25vw;
+   height: 15vh;
+   background-color: yellowgreen;
+}
+.sectionThree .sectionThreeRight .RightTopImg{
+   width: 25vw;
+   height: 15vh;
+   background-color: bisque;
+}
+.sectionThree .sectionThreeRight .RightBottomImg{
+   display: flex;
+}
+.sectionThree .sectionThreeRight .RightBottomImg .LeftAnimal{
+   width: 12.5vw;
+   height: 15vh;
+   background-color: chocolate;
+}
+.sectionThree .sectionThreeRight .RightBottomImg .RightAnimal{
+   width: 12.5vw;
+   height: 15vh;
+   background-color: brown;
 }

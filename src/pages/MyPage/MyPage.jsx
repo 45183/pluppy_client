@@ -27,17 +27,12 @@ const MyPage = () => {
         <nav>
           <ul className="myPage_container">
             <h3>나의 쇼핑정보</h3>
-            <li>
               <a href="/myPage">주문배송조회</a>
-            </li>
             <br></br>
             <h3>나의 계정</h3>
-            <li>
+
               <a href="/modify">회원정보</a>
-            </li>
-            <li>
-              <a href="/delivery_List">배송지 목록</a>
-            </li>
+
           </ul>
         </nav>
       </div>

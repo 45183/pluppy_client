@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../utils/axios';
+import './Signup.css'
+import downArrowIcon from './211687_down_arrow_icon.png';
+import { AiOutlineMail, AiOutlineLock, AiOutlineCheckCircle, AiOutlineUser, AiOutlineMobile   } from "react-icons/ai";
 
 function SignUp() {
 
@@ -90,26 +93,26 @@ function SignUp() {
   const ParentChecked = checked[0] && checked[1] && checked[2] && checked[3];
 
   const children = (
-    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '20px' }}>
+    <div className='termChildren'>
       <label>
         <input value={checkbox} type="checkbox" checked={checked[0]} onChange={
           (e) => handleChange(0, e)} />
-        [필수] 만 14세 이상입니다.
+        <span>[필수] 만 14세 이상입니다.</span>
       </label>
       <label>
         <input value={checkbox}  type="checkbox" checked={checked[1]} onChange={
           (e) => handleChange(1, e)} />
-        [필수] 이용약관 동의
+        <span>[필수] 이용약관 동의</span>
       </label>
       <label>
         <input value={checkbox}  type="checkbox" checked={checked[2]} onChange={
           (e) => handleChange(2, e)} />
-        [필수] 개인정보 수집 및 이용 동의
+        <span>[필수] 개인정보 수집 및 이용 동의</span>
       </label>
       <label>
         <input value={checkbox}  type="checkbox" checked={checked[3]} onChange={
           (e) => handleChange(3, e)} />
-        [필수] 개인정보 제 3자 제공 동의
+        <span>[필수] 개인정보 제 3자 제공 동의</span>
       </label>
     </div>
   );
@@ -127,9 +130,11 @@ function SignUp() {
   
   const navigate = useNavigate();
 
+  const URL = 'http://localhost:5000/user/signUp'
+
   const onSubmit = async(e) => {
     e.preventDefault()
-    await axiosInstance.post('/user/signUp', {email: email, name: name, password: pw, phone: phone})
+    await axios.post(URL, {email: email, name: name, password: pw, phone: phone})
     navigate('/')
   }
 
@@ -140,122 +145,146 @@ function SignUp() {
 
 return (
     <div className="SignUp">
-      <div className="signUp">
-        <h2>SIGN UP</h2>
+      <div className="wrap">
+        <h2>SIGN <span>UP</span></h2>
         <form onSubmit={onSubmit}>
-          <div>
+          <div className='inputContainer'>
+          <div className="inputWithIcon">
+          <AiOutlineMail size={30} />
             <input
               type="text"
               placeholder="google@gmail.com"
               value={email}
               onChange={handleEmail}
             />
+            </div>
           </div>
           <div>
             {!emailValid && email.length > 0 && (
-              <div>올바른 이메일을 입력해주세요</div>
+              <div  className='errFirst'>올바른 이메일을 입력해주세요</div>
             )}
           </div>
-          <div>
+          <div className="inputContainer">
+          <div className="inputWithIcon">
+          <AiOutlineLock size={30} />
             <input
               type="password"
               placeholder="Password"
               value={pw}
               onChange={handlePassword}
             />
-            <div>
+            </div>
+            <div className='err'>
               {!pwValid && pw.length > 0 && (
                 <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
               )}
             </div>
           </div>
-          <div>
+          <div className="inputContainer">
+          <div className="inputWithIcon">
+          <AiOutlineCheckCircle size={30} />
             <input
               type="password"
-              placeholder="비밀번호 확인"
+              placeholder="PW check"
               value={pwc}
               onChange={handlePasswordCheck}
             />
+            </div>
             <div>
               {!pwcValid && pwc.length > 0 && (
                 <div>
                   {pwc.length > 0 && !regex.test(pwc) && (
-                    <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+                    <div className='errDualOne'>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
                   )}
                   {pwc.length > 0 && pwc !== pw && (
-                    <div>비밀번호가 같지 않습니다.</div>
+                    <div className='errDualTwo'>비밀번호가 같지 않습니다.</div>
                   )}
                 </div>
               )}
             </div>
-          </div>
+          </div >
+          <div className="inputContainer">
+          <div className="inputWithIcon">
+          <AiOutlineUser size={30}/>
           <input 
             type="text" 
-            placeholder="이름" 
+            placeholder="Name(KR)" 
             value={name} 
             onChange={handleName}
           />
           <br />
-          <div>
+          </div>
+          <div className='err'>
             {
               !nameValid && name.length > 0 &&(
                 <div>
                   {
-                    <div>올바른 이름을 입력해주세요</div>
+                    <div>올바른 한글 이름을 입력해주세요</div>
                   }
                 </div>
               )
             }
           </div>
+          </div>
+          <div className="inputContainer">
+          <div className="inputWithIcon">
+          <AiOutlineMobile size={30} />
           <input 
             type="text" 
-            placeholder="휴대폰번호" 
+            placeholder="PH N" 
             value={phone} 
             onChange={handlePhone} 
             />
+          </div>
           <br />
-            <div>
+            <div className='errFirst'>
             {
               !phoneValid && phone.length > 0 && (
                 <div> ' - ' 을(를) 빼고 올바른 번호를 입력해주세요</div>
               )
             }
             </div>
-          <div>
-              <p>
-                  <a href='/terms'>Pluffy 이용약관</a>     <button onClick={onClickTermButton}>V</button>
-              </p>
-              <p>모두 확인하였으며 동의합니다
-                  <label>
-
-                      <input
-                          type="checkbox"
-                          checked={ParentChecked}
-                          value={checkbox}
-                          onChange={
-                          (e) =>  { setChecked(
-                            [e.target.checked, e.target.checked, e.target.checked, e.target.checked]
-                          );
-                          handleCheckbox(e)
-                          }
-                        }
-                          />
-                  </label>
-
-             
-                  <br></br>
-                  전체 동의에는 필수 정보에
-                  <br></br>대한 동의가 포함되어 있습니다
-              </p>
-              {terms && children}
-          </div>
-      <button><a href='/login'>logIn Page</a></button>
-      <button type="submit">Sign Up</button>
+            </div>
         </form>
-      </div>
-    </div>
+          <div className='term'>
+              <p className='termTop'>
+                  <a href='/terms'>Pluffy 이용약관<span>(약관보기)</span></a>  <img onClick={onClickTermButton} src={downArrowIcon} alt='' />
+              </p>
+              <p className='termCheck'>
+              <label>
+                <input
+                    type="checkbox"
+                    checked={ParentChecked}
+                    value={checkbox}
+                    onChange={
+                    (e) =>  { setChecked(
+                      [e.target.checked, e.target.checked, e.target.checked, e.target.checked]
+                    );
+                    handleCheckbox(e)
+                    }
+                  }
+                    />
+              </label>
+                
+                
+                
+                <span className='termSpan'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;모두 확인하였으며 동의합니다</span>
     
-   
+              </p>
+              <p className='termP'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전체동의에는 필수정보에 대한 동의가 포함되어 있습니다</p>
+              {terms && children}
+              <div className='Btn'>
+                <button className='SignUpBtn' type="submit" disabled={notAllow}>Sign Up</button>
+                <button className='loginPage'><a href='/login'>LogIn Page</a></button>
+              </div>
+          </div>
+        <div>
+                  
+          
+     </div>
+    </div>
+
+    </div>
   );
 }
 

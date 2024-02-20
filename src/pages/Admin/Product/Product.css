@@ -14,7 +14,7 @@
 .product_container{
     display: inline-block;
     width: 1000px;
-    height: 1000px;
+    height: 0 auto;
     border:1px solid #494949;
     background-color: rgb(235, 235, 235);
     border-radius: 10px;
