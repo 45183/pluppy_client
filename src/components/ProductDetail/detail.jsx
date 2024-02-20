@@ -225,7 +225,7 @@ const Detail = () => {
                     >
                       {imageData.map((image, index) => (
                         <div className="productDetail_img"key={image.alt}>
-                          <img src={`http://localhost:8080/${product.image1}`} alt={product.name} />
+                          <img src={`http://localhost:5000/${product.image1}`} alt={product.name} />
                         </div>
                       ))}
                     </Carousel>

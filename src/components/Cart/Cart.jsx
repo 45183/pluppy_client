@@ -112,44 +112,48 @@ const Cart = ({ closeCart }) => {
     return (
         <div>
             <button className="closeBtn" onClick={handleCloseCart}>X</button>
+
             {cartItems.length > 0 && (
                 <>
-                    <ul>
-                        {cartItems.map(cartItem => (
-                            <li key={cartItem.cartItemId}>
-                                <img src={`http://localhost:8080/${cartItem.productImage}`} alt={cartItem.productName} />
-                                <p>{cartItem.productName}</p>
-                                <p>가격 : {cartItem.productPrice * cartItem.amount} 원</p>
+                <table>
+                    {cartItems.map(cartItem => (
+                        <tbody key={cartItem.cartItemId}>
+                            <tr>
+                                <td rowSpan={2}><img src={`http://localhost:5000/${cartItem.productImage}`} alt={cartItem.productName} /></td>
+                                <td>{cartItem.productName}</td>
+                                <td>가격 : {cartItem.productPrice * cartItem.amount} 원</td>
+                                <td rowSpan={2}>삭제버튼</td>
+                            </tr>
+                            <tr>
                                 <div className="quantity-control">
                                 <button onClick={() => handleQuantityChange(cartItem.cartItemId, cartItem.amount - 1)}>-</button>
                                 <span className="quantity-display">{cartItem.amount}</span> {/* 수량 표시 */}
                                 <button onClick={() => handleQuantityChange(cartItem.cartItemId, cartItem.amount + 1)}>+</button>
                                 </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <hr />
-                    <div className="price">
-                        <div className="selectShip">
-                            <div className="selectPrice">
-                                <p>전체 상품</p>
-                                <p className="pricecss">{getSelectedItemsTotal()} 원</p>
-                            </div>
-                            <div className="plus">+</div>
-                            <div className="shipPrice">
-                                <p>배송비</p>
-                                <p className="pricecss">{getSelectedItemsTotal() >= shippingCostThreshold ? 0 : shippingCost} 원</p>
-                            </div>
+                            </tr>
+                        </tbody>
+                    ))}
+                </table>
+                <hr />
+                <div className="price">
+                    <div className="selectShip">
+                        <div className="selectPrice">
+                            <p>전체 상품</p>
+                            <p className="pricecss">{getSelectedItemsTotal()} 원</p>
                         </div>
-                        <div className="allPrice">
-                            <p>주문 금액</p>
-                            <p className="finalPrice">{getTotalPrice()} 원</p>
+                        <div className="plus">+</div>
+                        <div className="shipPrice">
+                            <p>배송비</p>
+                            <p className="pricecss">{getSelectedItemsTotal() >= shippingCostThreshold ? 0 : shippingCost} 원</p>
                         </div>
                     </div>
-                    <hr />
-                    <button onClick={handleCheckout}
-                        className="pay">결제하기</button>
-
+                    <div className="allPrice">
+                        <p>주문 금액</p>
+                        <p className="finalPrice">{getTotalPrice()} 원</p>
+                    </div>
+                </div>
+                <hr />
+                <button onClick={handleCheckout} className="pay">결제하기</button>
                 </>
             )}
 

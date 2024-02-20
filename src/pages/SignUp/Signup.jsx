@@ -245,7 +245,6 @@ return (
             }
             </div>
             </div>
-        </form>
           <div className='term'>
               <p className='termTop'>
                   <a href='/terms'>Pluffy 이용약관<span>(약관보기)</span></a>  <img onClick={onClickTermButton} src={downArrowIcon} alt='' />
@@ -278,6 +277,7 @@ return (
                 <button className='loginPage'><a href='/login'>LogIn Page</a></button>
               </div>
           </div>
+        </form>
         <div>
                   
           

@@ -264,7 +264,7 @@ function Product() {
             <ul id='product_box'>
               {products.map((product) => (
                 <li id='product_li' key={product.productId} onClick={() => handleClick(product.productId)}>
-                  <img src={`http://localhost:8080/${product.image1}`} width={300} alt={product.name}/>
+                  <img src={`http://localhost:5000/${product.image1}`} width={300} alt={product.name}/>
                   <strong>이름:</strong> {product.name} {' '}
                   <strong>가격:</strong> {product.price} {' '}
                 </li>
