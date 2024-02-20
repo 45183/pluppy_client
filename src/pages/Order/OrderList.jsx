@@ -2,12 +2,69 @@ import Header from "../../components/Header/Header";
 import { useState, useEffect } from "react";
 import "./OrderList.css";
 import {Address_info} from '../MyPage/User_Modify';
+import axiosInstance from "../../utils/axios";
 
 const OrderList = (props) => {
   const [allCheck, setAllCheck] = useState(false);
   const [useCheck, setUseCheck] = useState(false);
   const [provideCheck, setProvideCheck] = useState(false);
   const [serviceCheck, setServiceCheck] = useState(false);
+  const [userData, setUserData] = useState(null); // 유저 정보 상태 추가
+  const [productData, setProductData] = useState([]); // 상품 정보 상태 추가
+
+  let userId = ''; // 기본값으로 빈 문자열 설정
+
+  const userIdCookie = document.cookie.split('; ').find(row => row.startsWith('userId'));
+  if (userIdCookie) {
+      userId = userIdCookie.split('=')[1];
+  } else {
+      console.log('userId 쿠키가 없습니다.');
+  // 여기서 쿠키가 없는 경우에 대한 처리를 추가합니다.
+  // 예를 들어, 로그인 페이지로 리디렉션하거나 기본값으로 설정할 수 있습니다.
+  // userId = '기본값';
+  }
+
+  useEffect(() => {
+    // userId로 user 정보 가져오기
+    const fetchUserData = async () => {
+      try {
+        const res = await axiosInstance.get(`/user/${userId}`);
+        setUserData(res.data); // 유저 정보 설정
+        console.log(res.data)
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+    // cartItem으로 상품 정보 가져오기
+    const fetchProductData = async () => {
+      try {
+        const res = await axiosInstance.get(`/cart/${userId}`);
+        const cartItemsWithProductInfo = await Promise.all(
+          res.data.data.map(async (cartItem) => {
+              // 각 장바구니 아이템의 상품 ID를 이용하여 해당 상품 정보를 가져옵니다.
+              const productRes = await axiosInstance.get(`/product/${cartItem.productId}`);
+              const productInfo = productRes.data.data;
+              console.log(productInfo)
+              // 상품 정보와 장바구니 아이템 정보를 합칩니다.
+              return {
+                  ...cartItem,
+                  productName: productInfo.name,
+                  productPrice: productInfo.price,
+                  productImage: productInfo.image1
+              };
+          })
+      );
+        setProductData(cartItemsWithProductInfo); // 상품 정보 설정
+        console.log(cartItemsWithProductInfo)
+      } catch (error) {
+        console.error('Error fetching product data:', error);
+      }
+    };
+
+    fetchUserData(); // 유저 정보 가져오기 실행
+    fetchProductData(); // 상품 정보 가져오기 실행
+  }, [userId]); // userId가 변경될 때마다 실행
+
 
   const allBtnEvent = () => {
     if (allCheck === false) {
@@ -64,16 +121,15 @@ const OrderList = (props) => {
           <div className="delivery">
             <h2>배송정보</h2>
             <h4>기존 배송지</h4>
-            <p>
-              배송명 <input type="text" />
-            </p>
-            <p>
-              수령인 <input type="text" />
-            </p>
-               <Address_info />
-            <p>
-              연락처 <input type="text" />
-            </p>
+            {/* 유저 정보 표시 */}
+            {userData && (
+            <>
+              <p>수령인 <input type="text" defaultValue={userData.data.name} /></p>
+              <p>주소 <input type="text" defaultValue={userData.data.address1} /></p>
+              <p>주소 <input type="text" defaultValue={userData.data.address2} /></p>
+              <p>연락처 <input type="text" defaultValue={userData.data.phone} /></p>
+            </>
+          )}
             <select>
               <option>배송시 요청사항을 선택해 주세요.</option>
               <option>문 앞에 놓아주시면 되요.</option>
@@ -83,6 +139,18 @@ const OrderList = (props) => {
           </div>
           <div className="product_info">
             <h2>상품정보</h2>
+            <table className="product_table">
+            <tbody>
+              {productData.map((product) => (
+              <tr key={product.productId}>
+                <td><img src={`http://localhost:5000/${product.productImage}`} alt={productData.productName} /></td>
+                <td>{product.productName}</td>
+                <td>{product.amount}</td>
+                <td>{product.productPrice * product.amount}</td>
+              </tr>
+            ))}
+            </tbody>
+          </table>
           </div>
           <div className="payment">
             <h2>결제방법</h2>
