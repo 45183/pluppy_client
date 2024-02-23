@@ -3,27 +3,26 @@
     align-items: center;
     justify-content: center;
 }
-
 .detailContainer{
-    width: 1000px;
+    width: 800px;
     margin-top: 30px;
 }
-.productDetail_img {
-    width: 300px;
-}
 .productImage {
-    margin-left: 30px;
     float: left;
     height: auto;
-    width: 400px;
-    border:none;
+    width: 350px;
+    height: 350px;
     display: flex;
-    position: relative;
-    justify-content: space-between;
+    align-items: center;
+    justify-content:center;
 }
 .productImage td{
     width: 100%;
     height: 100%;
+}
+.productImage img{
+    width: 350px;
+    height: 350px;
 }
 
 .imageSlider {
@@ -51,7 +50,6 @@
     width: 33px;
     height: 39px;
     right: 0%;
-    /* background: url("../../../public/images/다음.png") no-repeat; */
     border-style: none;
     top: 50%;
     transform: translateY(-50%);

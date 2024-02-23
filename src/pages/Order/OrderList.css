@@ -6,41 +6,72 @@
 
 .delivery {
   width: 500px;
-  height: 500px;
+  height: 480px;
   border-top: 2px solid gray;
   text-align: left;
-  margin-bottom: 20px;
+}
+.delivery_content {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .delivery h2,
 h4,
-.product_info h2,
 .payment h2,
 .payment_price h2 {
   margin: 20px;
 }
+.product_info h2 {
+  margin: 10px;
+}
 
 .delivery p {
-  margin: 30px;
+  width: 50px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
-
 .delivery input {
-  margin-left: 30px;
   width: 360px;
-  height: 25px;
+  height: 30px;
 }
-
 .delivery select {
-  margin-left: 105px;
+  margin-left: 20px;
   width: 360px;
-  height: 25px;
+  height: 36px;
 }
 
 .product_info {
   width: 500px;
-  height: 200px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
   border-top: 2px solid gray;
-  text-align: left;
+}
+.product_zip {
+  width: 450px;
+  margin:30px;
+  border:none;
+}
+.product_zip img {
+  width:150px;
+}
+.productContent {
+  float:right;
+  width: 290px;
+  height: 140px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+.product_content p {
+  margin:10px;
+}
+.product_table strong {
+  font-weight: 600;
 }
 .payment {
   width: 500px;
@@ -62,7 +93,7 @@ h4,
   float: right;
   width: 400px;
   height: 750px;
-  margin-bottom: 75px;
+  margin-bottom: 250px;
   margin-left: 20px;
   text-align: left;
 }
@@ -101,16 +132,16 @@ h4,
     margin:10px;
 }
 .agree label {
-  margin: 2px;
-  padding: 5px;
+  padding: 2px;
   font-size: 16px;
+  margin:10px;
 }
 
 #check1,
 #check2,
 #check3 {
-    margin:15px;
     color:rgb(216, 216, 216);
+
 }
 #all-check,
 #payment_p{

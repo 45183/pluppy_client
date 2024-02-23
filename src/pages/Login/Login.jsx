@@ -13,45 +13,34 @@ const Login = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
 
-  const [notAllow, setNotAloow] = useState(true);
+  const [notAllow, setNotAllow] = useState(true);
 
 
   
 
-  const handleEmail = (e)=>{
+  const handleEmail = (e) => {
      setEmail(e.target.value);
-     const regex =
-        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-     if(regex.test(email)){
-        setEmailValid(true);
-     }else{
-        setEmailValid(false);
-     }
+     const regex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+     setEmailValid(regex.test(e.target.value));
+  };
 
-  }
-
-  const handlePassword = (e)=>{
-     setPw(e.target.value);
-     const regex = 
-     /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[$`~!@#$%^&\\(\\)\-_=+])(?!.*[^a-zA-Z0-9$`~!@#$%^&*#^?&\\(\\)\-_=+]).{8,20}$/;      if(regex.test(pw)){
-        setPwValid(true);
-     }else{
-        setPwValid(false);
-     }
-  }
+  const handlePassword = (e) => {
+   setPw(e.target.value);
+   const regex =
+     /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[$`~!@#$%^&\\(\\)\-_=+])(?!.*[^a-zA-Z0-9$`~!@#$%^&*#^?&\\(\\)\-_=+]).{8,20}$/;
+   setPwValid(regex.test(e.target.value));
+  };
 
 
-  useEffect(()=>{
-     if(emailValid && pwValid){
-        setNotAloow(false);
-        return
-     }
-     setNotAloow(true);
+  useEffect(() => {
+   if (emailValid && pwValid) {
+     setNotAllow(false);
+   } else {
+     setNotAllow(true);
+   }
+ }, [emailValid, pwValid]);
 
-  },
-  [emailValid,pwValid]);
 
-  
   const navigate = useNavigate()
 
 
@@ -74,7 +63,7 @@ const Login = () => {
   return (
 <div className='login'>
     <div className='logIn'>
-        <h2>로그in</h2>
+        <h2>LOG IN</h2>
         <form onSubmit={onSubmit}>
             <div>
                 <input
@@ -84,7 +73,7 @@ const Login = () => {
                     onChange={handleEmail}/>
                 <div>
                     { !emailValid && email.length > 0 && (
-                    <div>올바른 이메일을 입력해주세요</div>
+                    <div style={{'color':'red', 'float':'left'}}>올바른 이메일을 입력해주세요</div>
                     ) }
                 </div>
             </div>
@@ -96,26 +85,26 @@ const Login = () => {
                     onChange={handlePassword}/>
                 <div>
                     { !pwValid && pw.length > 0 && (
-                    <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+                    <div style={{'color':'red', 'float':'left'}}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
                     ) }
                 </div>
             </div>
             <div>
-               <button type="submit">
+               <button className={`loginBtn ${!notAllow ? 'pointer' : ''}`} type="submit" disabled={notAllow}>
                   로그인
                </button><br/>
             </div>
+            <div>
+               <button className='kakaoLogin'>카카오 로그인</button>
+            </div>
+            <div>
+               <button className='googleLogin'>구글 로그인</button>
+            </div>
+            <div className="signUp-section">
+              <a href='/signUp'>signUp</a>
+            </div>
         </form>
     </div>
-    <button>카카오 로그인</button><br/>
-    <button>구글 로그인</button><br/>
-    <p>
-        <span className='searchId'>아이디 찾기</span>
-        <span className='searchPw'> 비밀번호 찾기</span>
-    </p>
-      <div className="signUp-section">
-        <a href='/signUp'>signUp</a>
-      </div>
     </div>
   );
 };
