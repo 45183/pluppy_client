@@ -38,7 +38,6 @@
     width: 33px;
     height: 39px;
     left: 0%;
-    /* background: url("../../../public/images/이전.png") no-repeat; */
     border-style: none;
     top: 50%;
     transform: translateY(-50%);
@@ -143,7 +142,6 @@
 }
 
 .quantity button {
-   
     width: 30px;
     height: 30px;
     background: none;
@@ -153,7 +151,6 @@
     text-align: center;
     cursor: pointer;
 }
-
 .quantity span {
     width: 30px;
     height: 28px;

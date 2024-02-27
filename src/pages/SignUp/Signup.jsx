@@ -130,7 +130,7 @@ function SignUp() {
   
   const navigate = useNavigate();
 
-  const URL = 'http://localhost:8000/user/signUp'
+  const URL = 'http://localhost:8080/user/signUp'
 
   const onSubmit = async(e) => {
     e.preventDefault()

@@ -138,7 +138,7 @@ function Product() {
                   onClick={() => handleClick(product.productId)}
                 >
                   <img
-                    src={`http://localhost:5000/${product.image1}`}
+                    src={`http://localhost:8080/${product.image1}`}
                     width={300}
                     alt={product.name}
                   />

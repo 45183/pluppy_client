@@ -18,7 +18,6 @@ import OrderList2 from './pages/Order/OrderList2';
 import Payment_Loading from './pages/Order/Payment_Loading';
 import Payment_Complete from './pages/Order/Payment_Complete';
 import Detail from './components/ProductDetail/Detail';
-import ProductRegister from './pages/Admin/Product/ProductRegister';
 import ProductRegistration from './pages/Admin/Product/ProductRegistration';
 import OrderDetail from './pages/Admin/Order/OrderDetail';
 function App() {
@@ -36,8 +35,7 @@ function App() {
           <Route path="/user" element={<User />} />
           <Route path="/product" element={<Product />} />
           <Route path="/orderDetail/:userId/:createdAt" element={<OrderDetail />} />
-          <Route path="/product/new" element={<ProductRegister />} />
-          <Route path="/product/new2" element={<ProductRegistration />} />
+          <Route path="/product/new" element={<ProductRegistration />} />
           <Route path="/order" element={<Order />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/mypage" element={<MyPage />} />

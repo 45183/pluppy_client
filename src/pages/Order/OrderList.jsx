@@ -10,6 +10,8 @@ const OrderList = (props) => {
   const [serviceCheck, setServiceCheck] = useState(false);
   const [userData, setUserData] = useState(null); // 유저 정보 상태 추가
   const [productData, setProductData] = useState([]); // 상품 정보 상태 추가
+  const [totalPrice, setTotalPrice] = useState(0); // 총 상품 금액 상태 추가
+  const [paymentMethod, setPaymentMethod] = useState(""); // 결제 방법 상태 추가
 
   let userId = ""; // 기본값으로 빈 문자열 설정
 
@@ -23,6 +25,12 @@ const OrderList = (props) => {
     // 여기서 쿠키가 없는 경우에 대한 처리를 추가합니다.
     // 예를 들어, 로그인 페이지로 리디렉션하거나 기본값으로 설정할 수 있습니다.
     // userId = '기본값';
+  }
+
+  let shippingFee = 3000; // 기본 배송비
+  const finalTotalPrice = totalPrice >= 50000 ? totalPrice : totalPrice + shippingFee;
+  if(totalPrice >= 50000){
+    shippingFee = 0;
   }
 
   useEffect(() => {
@@ -59,6 +67,12 @@ const OrderList = (props) => {
         );
         setProductData(cartItemsWithProductInfo); // 상품 정보 설정
         console.log(cartItemsWithProductInfo);
+
+        // 총 상품 금액 계산
+        const total = cartItemsWithProductInfo.reduce((total, product) => {
+          return total + product.productPrice * product.amount;
+        }, 0);
+        setTotalPrice(total); // 총 상품 금액 설정
       } catch (error) {
         console.error("Error fetching product data:", error);
       }
@@ -106,6 +120,11 @@ const OrderList = (props) => {
     }
   };
 
+  // 결제 방법 선택 핸들러
+  const handlePaymentMethod = (method) => {
+    setPaymentMethod(method);
+  };
+
   useEffect(() => {
     if (provideCheck === true && useCheck === true && serviceCheck === true) {
       setAllCheck(true);
@@ -113,6 +132,31 @@ const OrderList = (props) => {
       setAllCheck(false);
     }
   }, [provideCheck, useCheck, serviceCheck]);
+
+  const handleCheckout = async () => {
+    try {    
+        // 주문 정보 생성
+        const orderData = {
+            userId: userData.data.userId,
+            products: productData.map(product => ({
+                productId: product.productId,
+                amount: product.amount,
+                price : (product.productPrice * product.amount)
+            })),
+            totalPrice: finalTotalPrice, // 총 상품 금액 추가
+            payment: paymentMethod // 결제 정보 추가
+        };
+
+        // 주문 정보를 서버에 전송
+        const res = await axiosInstance.post("/order", orderData);
+        
+        // 주문 완료 후 처리 (예: 결제 페이지로 이동)
+        console.log("주문이 완료되었습니다.", res.data);
+        window.location.href = "/payment_loading"; // 예시로 결제 페이지로 이동하는 코드
+    } catch (error) {
+        console.error("주문을 처리하는 도중 오류가 발생했습니다.", error);
+    }
+};
 
   return (
     <div>
@@ -156,7 +200,7 @@ const OrderList = (props) => {
               {productData.map((product) => (
                 <div key={product.productId}>
                   <img
-                    src={`http://localhost:8000/${product.productImage}`}
+                    src={`http://localhost:8080/${product.productImage}`}
                     alt={productData.productName}
                   />
                   <div className="productContent">
@@ -180,19 +224,20 @@ const OrderList = (props) => {
           </div>
           <div className="payment">
             <h2>결제방법</h2>
-            <button>신용/체크카드</button>
-            <button>토스페이</button>
-            <button>카카오페이</button>
-            <button>네이버페이</button>
-            <button>무통장입금</button>
+            {/* 각 버튼에 클릭 이벤트 및 해당 결제 방법으로 상태 업데이트 */}
+            <button onClick={() => handlePaymentMethod("신용/체크카드")}>신용/체크카드</button>
+            <button onClick={() => handlePaymentMethod("토스페이")}>토스페이</button>
+            <button onClick={() => handlePaymentMethod("카카오페이")}>카카오페이</button>
+            <button onClick={() => handlePaymentMethod("네이버페이")}>네이버페이</button>
+            <button onClick={() => handlePaymentMethod("무통장입금")}>무통장입금</button>
           </div>
         </div>
         <div className="payment_price">
           <h2>결제금액</h2>
-          <p>총 상품 금액</p>
-          <p id="discount">할인금액</p>
-          <p>배송비</p>
-          <p id="all_price">총 결제 금액</p>
+          <p><strong>총 상품 금액</strong> {totalPrice}원</p>
+          <p id="discount"><strong>할인 금액</strong></p>
+          <p><strong>배송비</strong> {shippingFee}원</p>
+          <p id="all_price"><strong>총 결제 금액</strong>{finalTotalPrice}원</p>
           <form method="post" action="">
             <div className="agree">
               <div>
@@ -249,7 +294,7 @@ const OrderList = (props) => {
           </form>
           <div className="payment_button">
             <a href="/payment_loading">
-              <button>결제하기</button>
+              <button onClick={() => handleCheckout()}>결제하기</button>
             </a>
           </div>
         </div>

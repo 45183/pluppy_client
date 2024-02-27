@@ -67,7 +67,7 @@ h4,
   justify-content: center;
   flex-direction: column;
 }
-.product_content p {
+.productContent p {
   margin:10px;
 }
 .product_table strong {
@@ -92,8 +92,8 @@ h4,
   border: 2px solid black;
   float: right;
   width: 400px;
-  height: 750px;
-  margin-bottom: 250px;
+  height: 620px;
+  margin-bottom: 230px;
   margin-left: 20px;
   text-align: left;
 }
@@ -103,16 +103,18 @@ h4,
 }
 .payment_price p {
   padding: 15px;
-  margin:20px;
+  margin:10px;
 }
-
+.payment_price strong {
+  padding: 15px;
+  font-weight: bold;
+}
 .payment_price #discount {
   color:#2BBD7C;
 }
 
 .payment_price #all_price {
   border-bottom: 1px solid black;
-  font-weight: bold;
 }
 .payment_button{
     display: flex;
@@ -136,12 +138,8 @@ h4,
   font-size: 16px;
   margin:10px;
 }
-
-#check1,
-#check2,
-#check3 {
-    color:rgb(216, 216, 216);
-
+.agree span {
+  margin:10px;
 }
 #all-check,
 #payment_p{

@@ -1,25 +1,37 @@
+
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import jjimBtn from "./images/jjimBtn.png";
+import jjimBtnActive from "./images/jjimBtnActive.png";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import imageData from "./images/imageData";
 import './Detail.css';
 import axiosInstance from "../../utils/axios";
 
 const Detail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const [currentIndex, setCurrentImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [isInWishList, setIsInWishList] = useState(false); // 위시리스트에 해당 상품이 있는지 여부 상태 추가
+
+  let userId = "";
+  const userIdCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("userId"));
+  if (userIdCookie) {
+    userId = userIdCookie.split("=")[1];
+  } else {
+    console.log("userId 쿠키가 없습니다.");
+  }
+  console.log("userId:", userId);
+
 
   const navigate = useNavigate();
 
-
   useEffect(() => {
     getProduct(productId);
-  }, [productId]);
+    checkWishList(productId, userId);
+  }, [productId, userId]);
 
   const getProduct = async (productId) => {
     try {
@@ -27,6 +39,15 @@ const Detail = () => {
       setProduct(res.data.data);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const checkWishList = async (productId, userId) => {
+    try {
+      const res = await axiosInstance.get(`/wishList/checkWishList/${productId}/${userId}`);
+      setIsInWishList(res.data.isInWishList);
+    } catch (error) {
+      console.error("Error checking wish list:", error);
     }
   };
 
@@ -42,22 +63,31 @@ const Detail = () => {
 
   const handleAddToCart = async () => {
     try {
-      // Send request to add product to cart
       const res = await axiosInstance.post('/cart/addCart', {
         productId,
         amount: quantity
       });
       console.log(res.data);
-      // // Handle response
-      // if (res.data.message === "UPDATE_SUCCESS") {
-      //   // If the cart item was updated
-      //   console.log("Product amount updated in cart.");
-      // } else {
-      //   // If a new cart item was added
-      //   console.log("Product added to cart.");
-      // }
     } catch (error) {
       console.error("Error adding product to cart:", error);
+    }
+  };
+
+  const handleAddWishList = async () => {
+    try {
+
+      if(isInWishList){
+        await axiosInstance.get(`/wishList/deleteWishList/${productId}/${userId}`);
+        setIsInWishList(false)
+      } else{
+        const res = await axiosInstance.post('/wishList/addWishList', {
+          productId,
+        });
+        console.log(res.data);
+        setIsInWishList(true); // 위시리스트에 추가된 후 상태 변경
+      }
+    } catch (error) {
+      console.error("Error adding product to wish list:", error);
     }
   };
 
@@ -70,16 +100,13 @@ const Detail = () => {
       productName: product.name,
       productPrice: product.price,
       totalPrice: (product.price * quantity)
-      // 다른 필요한 정보들도 여기에 추가할 수 있음
     };
     console.log(orderData)
-    // 상품 정보와 수량을 orderList2 페이지로 전달하면서 이동
     navigate(
       '/orderList2',{
       state: { orderData: orderData }
     });
   };
-
 
   return (
     <div>
@@ -90,16 +117,18 @@ const Detail = () => {
             <table className="detailContainer">
               <tbody>
                 <tr className="productImage">
-                  <td>
                         <div className="productDetail_img">
-                          <img src={`http://localhost:5000/${product.image1}`} alt={product.name} />
+                          <img src={`http://localhost:8080/${product.image1}`} alt={product.name} />
                         </div>
-                  </td>
                 </tr>
                 <tr className="productInfo">
                   <td className="productInfoHeader">
                     <p>{product.name}</p>
-                    <button className="jjimBtn"><img src={jjimBtn} alt="jjimBtn" /></button>
+                    {isInWishList ? ( // 상태에 따라 버튼 모양 변경
+                      <button className="jjimBtn"><img src={jjimBtnActive} alt="jjimBtn" onClick={handleAddWishList} /></button>
+                    ) : (
+                      <button className="jjimBtn"><img src={jjimBtn} alt="jjimBtn" onClick={handleAddWishList} /></button>
+                    )}
                   </td>
                   <td className="starReview">
                     <span>★★★★☆</span>

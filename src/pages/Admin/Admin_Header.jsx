@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axiosInstance from '../../utils/axios';
 
 const AdminHeader = styled.div`
   display: flex;
@@ -41,6 +42,16 @@ const Img = styled.img`
 `;
 
 const AdminHeaderComponent = () => {
+
+  const handleLogout = async () => {
+    try {
+      await axiosInstance.post('/auth/logout');
+      // 세션 쿠키 삭제
+      document.cookie = 'session-cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
   return (
     <AdminHeader>
       <header>
@@ -55,7 +66,7 @@ const AdminHeaderComponent = () => {
             <li><a href="/order">주문관리</a></li>
             <li><a href="/product">상품관리</a></li>
             <li><a href="/">홈페이지</a></li>
-            <li><a href="/login">로그아웃</a></li>
+            <li><a onClick={handleLogout} href="/login">로그아웃</a></li>
           </ul>
         </nav>
       </header>

@@ -576,7 +576,15 @@ const Order = () => {
                       <>
                         <td>
                         <a href={`/orderDetail/${order.userId}/${order.createdAt}`}>
-                          {order.userId}
+                          {order.userId ? (
+                            <>
+                            {order.userId}
+                            </>
+                          ) : (
+                            <>
+                            탈퇴한 회원
+                            </>
+                          )}
                           </a>
                           </td>
                       </>

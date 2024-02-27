@@ -18,35 +18,22 @@ const Cart = ({ closeCart }) => {
     userId = userIdCookie.split("=")[1];
   } else {
     console.log("userId 쿠키가 없습니다.");
-    // 여기서 쿠키가 없는 경우에 대한 처리를 추가합니다.
-    // 예를 들어, 로그인 페이지로 리디렉션하거나 기본값으로 설정할 수 있습니다.
-    // userId = '기본값';
   }
 
   console.log("userId:", userId);
 
-  // const [cartItems, setCartItems] = useState([
-  //     { id: 1, name: '상품1', price: 1000, quantity: 1, selected: true },
-  //     { id: 2, name: '상품2', price: 2000, quantity: 1, selected: true },
-  // ]);
-
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    // handleSelectAll(true);
     getCartItems(userId);
   }, []);
 
   const handleRemoveItem = async (cartItemId) => {
     try {
-      // 서버로 카트 아이템 ID를 전송하여 삭제합니다.
       await axiosInstance.get(`/cart/delete/${cartItemId}`);
-
-      // 서버로부터 데이터베이스에서 업데이트된 장바구니 정보를 다시 가져옵니다.
       getCartItems(userId);
     } catch (error) {
       console.error("Error removing item from cart:", error);
-      // 에러 처리를 원하는 대로 수행합니다.
     }
   };
 
@@ -98,23 +85,22 @@ const Cart = ({ closeCart }) => {
 
   const getSelectedItemsTotal = () => {
     return cartItems.reduce((total, item) => {
-      if (item.selected) {
-        total += item.price * item.quantity;
-      }
+      total += item.productPrice * item.amount; // 각 상품의 가격과 수량을 곱하여 합산
       return total;
     }, 0);
   };
-
+  
   const getTotalPrice = () => {
     const selectedItemsTotal = getSelectedItemsTotal();
     const shippingCosts =
       selectedItemsTotal >= shippingCostThreshold ? 0 : shippingCost;
     return selectedItemsTotal + shippingCosts;
   };
+  
 
   const handleCheckout = () => {
     // 결제 로직 추가하기
-    alert(`총 결제 금액: ${getTotalPrice()}원`);
+    window.location='/orderList'
   };
 
   const handleCloseCart = () => {
@@ -133,15 +119,17 @@ const Cart = ({ closeCart }) => {
 
       {cartItems.length > 0 && (
         <>
-          <table>
+          <table className="cart_table">
             {cartItems.map((cartItem) => (
               <tbody key={cartItem.cartItemId}>
                 <tr>
                   <td rowSpan={2}>
+                    <a href={`http://localhost:3000/store/${cartItem.productId}`}>
                     <img
-                      src={`http://localhost:5000/${cartItem.productImage}`}
+                      src={`http://localhost:8080/${cartItem.productImage}`}
                       alt={cartItem.productName}
                     />
+                    </a>
                   </td>
                   <td>{cartItem.productName}</td>
                   <td>가격 : {cartItem.productPrice * cartItem.amount} 원</td>
@@ -153,7 +141,7 @@ const Cart = ({ closeCart }) => {
                     </button>
                   </td>
                 </tr>
-                <tr>
+                <tr id="quantity">
                   <td colSpan={3} className="quantity-control">
                     <button
                       onClick={() =>
