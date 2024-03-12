@@ -1,7 +1,8 @@
 # Link
-<a href="https://github.com/45183/pluppy_client">Frontend</a>
-<a href="https://github.com/45183/pluppy_server">Backend</a>
-
+<ul>
+ <li><a href="https://github.com/45183/pluppy_client">Frontend</a></li>
+ <li><a href="https://github.com/45183/pluppy_server">Backend</a></li>
+</ul>
 
 # Tech Stacks
  <br>
